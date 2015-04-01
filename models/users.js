@@ -2,9 +2,9 @@
 module.exports = function(sequelize, DataTypes) {
   var users = sequelize.define('users', {
     name: DataTypes.STRING,
-    username: { DataTypes.STRING, notNull: {'Must provide a username'}},
+    username: DataTypes.STRING,
     avatar: DataTypes.TEXT,
-    password: { DataTypes.STRING, notNull: {'Must provide a password'}},
+    password: DataTypes.STRING,
     bio: DataTypes.TEXT
   }, {
 
@@ -16,7 +16,7 @@ module.exports = function(sequelize, DataTypes) {
         //users has m-m relationship with artworks
         users.belongsToMany(models.artworks, {
           through: 'artworks_users',
-          foreign_key: 'user_id'
+          foreignKey: 'user_id'
         });
         //users has one-many relationship with comments
         users.hasMany(models.comments, { foreignKey: 'user_id',
