@@ -3,10 +3,59 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Title</title>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.min.js"></script>	
+
 	<script src='bundle.js'></script>
 	<script src='js/app.js'></script>
+
+	<script srd='js/views/userView.js'></script>
+	<script srd='js/views/usersListView.js'></script>
+	<script srd='js/views/editUserView.js'></script>
+	<script srd='js/views/newUserView.js'></script>
+
 </head>
 <body>
-	<h1>Hello world!</h1>
+	<h1>MET APP</h1>
+	<div id="main"></div>
+
+	<template id="user-view-template">
+		<div class='user-view'>
+			<img src='{{avatar}}' alt="">
+			<p class='name'>{{name}}</p>
+			<p class='username'>{{username}}</p>
+			<p class='bio'>{{bio}}</p>
+		</div>
+	</template>
+
+	<template id="new-user-template">
+		<input type="text" class="name">
+		<input type="text" class="username">
+		<input type="text" class="password">
+		<textarea class="bio"></textarea>
+		<input type="text" class="image">
+		<button class="create">CREATE</button>
+	</template>
+
+	<template id="edit-user-template">
+		<input type="text" class="name" value="{{name}}">
+		<input type="text" class="username" value="{{username}}">
+		<input type="text" class="password" value="{{password}}">
+		<input type="text" class="bio" value="{{bio}}">
+		<input class="image" value="{{avatar}}">
+		<button class="edit">EDIT</button>
+		<button class="delete">DELETE</button>
+	</template>
+
+
+
+
+
+
+
+
+
 </body>
 </html>
