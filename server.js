@@ -225,4 +225,23 @@ app.put('/users/:id/remove_artwork', function(req, res) {
 
 //NY Times request routes
 
+app.get('/ny_times_events', function(req, res) {
+
+  var queryParams = req.query;
+  queryParams['api-key'] = '2425a645db140bd11173a0e217fff0d4:3:71761161'
+  console.log(queryParams);
+  request({
+    uri: 'http://api.nytimes.com/svc/events/v2/listings.json',
+    method: 'GET',
+    json: true,
+    qs: queryParams
+  },
+  function(error, response, body) {
+    var results = body;
+    console.log(results);
+    res.send(results)
+  });
+});
+
+
 module.exports = app;
