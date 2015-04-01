@@ -2,16 +2,16 @@
   "development": {
     "database": "team_gaia_development",
     "host": "127.0.0.1",
-    "dialect": "postgres",
+    "dialect": "postgres"
   },
   "test": {
     "database": "team_gaia_test",
     "host": "127.0.0.1",
-    "dialect": "postgres",
+    "dialect": "postgres"
   },
   "production": {
     "database": "team_gaia_production",
     "host": "127.0.0.1",
-    "dialect": "postgres",
+    "dialect": "postgres"
   }
 }
