@@ -3,6 +3,8 @@ var bodyParser = require('body-parser');
 var logger = require('morgan');
 var models = require(__dirname + '/models');
 var request = require('request');
+var path = require('path');
+var application_root = __dirname;
 
 var app = express();
 
@@ -12,12 +14,18 @@ var Comment = models.comments;
 
 app.use(bodyParser());
 app.use(logger('dev'));
-app.use(express.static(__dirname + '/public'));
+app.use(express.static( path.join( application_root, 'public')));
+app.use(express.static( path.join( application_root, 'browser')));
+
+app.get('/', function(req, res) {
+  res.send('Homepage');
+});
 
 // USERS
+
 app.get('/users', function(req, res){
   User
-    .findAll()
+    .findAll( {include: Artwork} )
     .then(function(users){
       res.send(users);
     });
@@ -53,7 +61,7 @@ app.put('users/:id', function(req, res){
 
 app.delete('users/:id', function(req, res){
   User
-    .findOne(req.parmas.id)
+    .findOne(req.params.id)
     .then(function(user){
       user
         .destroy()
@@ -64,6 +72,7 @@ app.delete('users/:id', function(req, res){
 });
 
 // ARTWORKS
+
 app.get('/artworks', function(req, res){
   Artwork
     .findAll({ include: Comment })
@@ -95,7 +104,16 @@ app.get('/users/:id/artworks', function(req, res){
     });
 });
 
+app.post('/artworks', function(req, res) {
+  Artwork
+    .create(req.body)
+    .then(function(newArtwork) {
+      res.send(newArtWork);
+    });
+});
+
 // COMMENTS
+
 app.get('/comments', function(req, res){
   Comment
     .findAll()
@@ -174,14 +192,14 @@ app.delete('/comments/:id', function(req, res){
 // JOINT TABLE ROUTES
 
 app.put('/users/:id/add_artwork', function(req,res) {
-  var userId = req.params.id;
+  var user_id = req.params.id;
   var artworkId = req.body.artwork_id;
 
   User
-    .findOne(userId)
+    .findOne(user_id)
     .then(function(user) {
       Artwork
-        .findOne(artwork_id)
+        .findOne(artworkId)
         .then(function(artwork) {
           user.addArtwork(artwork);
           res.send('Success');
@@ -205,6 +223,6 @@ app.put('/users/:id/remove_artwork', function(req, res) {
     })
 });
 
-app.listen(3000, function() {
-  console.log('Server running on port 3000 :-)');
-});
+//NY Times request routes
+
+module.exports = app;
