@@ -1,11 +1,10 @@
 App.Collection.Users = Backbone.Collection.extend({
 
-	model: App.Models.User,
+	initalize: function(){
+		console.log('new USERS COLLECTION created');
+	},
 
-	getUsernames: function () {
-		var usernames = this.map(function(model, idx) {
-			return model.get('username');
-		});
-		return usernames;
-	}
+	url: '/users', 
+
+	model: App.Models.User
 });

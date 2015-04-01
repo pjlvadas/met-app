@@ -1,6 +1,6 @@
 App.Views.User = Backbone.View.extend({
 
-	//tagName:,
+	tagName: 'aside',
 
 	className: 'user',
 
