@@ -1,9 +1,9 @@
 "use strict"
-modules.exports = function(sequelize, DataTypes) {
+module.exports = function(sequelize, DataTypes) {
   var comments = sequelize.define('comments', {
     title: DataTypes.STRING,
     content: DataTypes.TEXT,
-    date: { DataTypes.DATE, defaultValue: Sequelize.NOW },
+    date: DataTypes.DATE,
     artwork_id: DataTypes.INTEGER,
     user_id: DataTypes.INTEGER
   }, {
