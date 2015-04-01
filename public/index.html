@@ -20,6 +20,7 @@
 <body>
 	<h1>MET APP</h1>
 	<div id="main"></div>
+	<div id="artwork-modal"></div>
 
 	<template id="user-view-template">
 		<div class='user-view'>
@@ -48,6 +49,30 @@
 		<button class="edit">EDIT</button>
 		<button class="delete">DELETE</button>
 	</template>
+
+	<template id="artwork-preview-template">
+		<div class="artwork-preview">
+			<img src="{{img_url}}" alt="">			
+			<p class="title">{{title}}}</p>
+			<p class="artist">{{artist}}</p>
+		</div>
+	</template>
+
+	<template id="artwork-modal-template">
+		<div class="modal-view">
+			<img src="{{img_url}}" alt="">
+			<p class="artist">{{artist}}</p>
+			<p class="title">{{title}}}</p>
+			<p class="medium">{{medium}}</p>
+			<p class="start_date">{{startDate}}</p>
+			<p class="end_date">{{endDate}}</p>
+			<p class="culture">{{culture}}</p>
+		<h2 id="close">CLOSE</h2>
+		</div>
+	</template>
+
+	
+
 
 
 
