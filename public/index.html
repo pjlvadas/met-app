@@ -10,25 +10,25 @@
 	<script src='js/collections/comments.js'></script>
 	<script src='js/collections/users.js'></script>	
 
-		<script src='js/models/artwork.js'></script>
-		<script src='js/models/comment.js'></script>
-		<script src='js/models/user.js'></script>
+	<script src='js/models/artwork.js'></script>
+	<script src='js/models/comment.js'></script>
+	<script src='js/models/user.js'></script>
 
-		<script src='js/views/artworks/artworkPreview.js'></script>		
-		<script src='js/views/artworks/artworksListView.js'></script>
+	<script src='js/views/artworks/artworkPreview.js'></script>		
+	<script src='js/views/artworks/artworksListView.js'></script>
 
-		<script src='js/views/comments/commentsListView.js'></script>
-		<script src='js/views/comments/commentView.js'></script>
-		<script src='js/views/comments/editCommentsView.js'></script>		
-		<script src='js/views/comments/newCommentsView.js'></script>
+	<script src='js/views/comments/commentsListView.js'></script>
+	<script src='js/views/comments/commentView.js'></script>
+	<script src='js/views/comments/editCommentView.js'></script>		
+	<script src='js/views/comments/newCommentView.js'></script>
 
-		<script src='js/views/users/editUserView.js'></script>		
-		<script src='js/views/users/newUserView.js'></script>
-		<script src='js/views/users/usersListView.js'></script>	
-		<script src='js/views/users/userView.js'></script>
+	<script src='js/views/users/editUserView.js'></script>		
+	<script src='js/views/users/newUserView.js'></script>
+	<script src='js/views/users/usersListView.js'></script>	
+	<script src='js/views/users/userView.js'></script>
 
-		<script src='js/views/modalView.js'></script>	
-		<script src='js/views/navigationView.js'></script>									
+	<script src='js/views/modalView.js'></script>	
+	<script src='js/views/navigationView.js'></script>									
 
 
 </head>
@@ -68,7 +68,7 @@
 	<template id="artwork-preview-template">
 		<div class="artwork-preview">
 			<img src="{{img_url}}" alt="">
-			<p class="title">{{title}}}</p>
+			<p class="title">{{title}}</p>
 			<p class="artist">{{artist}}</p>
 		</div>
 	</template>
@@ -85,5 +85,34 @@
 		<h2 id="close">CLOSE</h2>
 		</div>
 	</template>
+
+	<template id="comment-view-template">
+		<div class='user-view'>
+<!-- 			<img src='{{avatar}}' alt=""> -->
+			<p class='title'>{{title}}</p>
+			<p class='content'>{{content}}</p>
+			<p class='date'>{{date}}</p>
+		</div>
+	</template>
+
+	<template id="new-comment-template">
+		<input type="text" class="title">
+		<input type="text" class="content">
+		<input type="text" class="date">
+<!-- 		<input type="text" class="avatar"> -->
+		<button class="create">CREATE</button>
+	</template>
+
+	<template id="edit-comment-template">
+		<input type="text" class="title" value="{{title}}">
+		<input type="text" class="content" value="{{content}}">
+		<input type="text" class="date" value="{{date}}">
+<!-- 		<input class="image" value="{{avatar}}"> -->
+		<button class="edit">EDIT</button>
+		<button class="delete">DELETE</button>
+	</template>	
+
+
+
 </body>
 </html>
