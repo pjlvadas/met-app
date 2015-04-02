@@ -31,7 +31,7 @@ app.get('/users', function(req, res){
     });
 });
 
-app.get('users/:id', function(req, res){
+app.get('/users/:id', function(req, res){
   User
     .findOne({ where: {id: req.params.id}, include: Artwork})
     .then(function(user){
