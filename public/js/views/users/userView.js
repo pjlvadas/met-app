@@ -1,8 +1,8 @@
 App.Views.User = Backbone.View.extend({
 
-	tagName: 'aside',
+	// tagName: 'aside',
 
-	className: 'user',
+	// className: 'user',
 
 	initialize: function() {
 		console.log('new USER VIEW created');
@@ -11,16 +11,16 @@ App.Views.User = Backbone.View.extend({
 	},
 
 	renderView: function() {
-		this.$el.html(this.userViewTemplate(this.model.toJSON()));
-		$('#main').html(this.$el.html());
+		var renderedTemplate = this.userViewTemplate(this.model.toJSON());
+		this.$el.html(renderedTemplate);
+		$('#main').append(this.$el);
 	},
 
 	events: {
-		"click .edit": "showEditView"
+		'click input[name="edit"]': "showEditView"
 	},
 
 	showEditView: function() {
-		$('#main').html(new App.Views.EditUser({model: user}).$el);
+		var editView = new App.Views.EditUser({model: this.model});
 	}
-
-})
+});

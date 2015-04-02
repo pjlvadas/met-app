@@ -108,7 +108,7 @@ app.post('/artworks', function(req, res) {
   Artwork
     .create(req.body)
     .then(function(newArtwork) {
-      res.send(newArtWork);
+      res.send(newArtwork);
     });
 });
 
