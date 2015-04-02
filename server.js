@@ -65,8 +65,8 @@ app.delete('users/:id', function(req, res){
     .then(function(user){
       user
         .destroy()
-        .then(function(deletedUser){
-          res.send(deletedUser);
+        .then(function(){
+          res.send(user);
         });
     });
 });
@@ -137,20 +137,6 @@ app.get('/users/:id/comments', function(req, res){
       });
 });
 
-app.get('/artworks/:id/comments', function(req, res){
-  Artwork
-    .findOne(req.params.id)
-      .then(function(artwork){
-        Comment
-          .findAll()
-          .then(function(comments){
-            artwork.getComments()
-            .then(function(artworkComments){
-              res.send(artworkComments);
-            });
-          });
-      });
-});
 
 app.post('/users/:id/comments', function(req, res){
   User
