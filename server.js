@@ -31,7 +31,7 @@ app.get('/users', function(req, res){
     });
 });
 
-app.get('/users/:id', function(req, res){
+app.get('users/:id', function(req, res){
   User
     .findOne({ where: {id: req.params.id}, include: Artwork})
     .then(function(user){
@@ -132,21 +132,6 @@ app.get('/users/:id/comments', function(req, res){
             user.getComments()
             .then(function(userComments){
               res.send(userComments);
-            });
-          });
-      });
-});
-
-app.get('/artworks/:id/comments', function(req, res){
-  Artwork
-    .findOne(req.params.id)
-      .then(function(artwork){
-        Comment
-          .findAll()
-          .then(function(comments){
-            artwork.getComments()
-            .then(function(artworkComments){
-              res.send(artworkComments);
             });
           });
       });
