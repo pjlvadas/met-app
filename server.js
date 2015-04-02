@@ -31,7 +31,7 @@ app.get('/users', function(req, res){
     });
 });
 
-app.get('users/:id', function(req, res){
+app.get('/users/:id', function(req, res){
   User
     .findOne({ where: {id: req.params.id}, include: Artwork})
     .then(function(user){
@@ -47,7 +47,7 @@ app.post('/users', function(req, res){
       });
 });
 
-app.put('users/:id', function(req, res){
+app.put('/users/:id', function(req, res){
   User
     .findOne(req.params.id)
     .then(function(user){
@@ -59,7 +59,7 @@ app.put('users/:id', function(req, res){
     });
 });
 
-app.delete('users/:id', function(req, res){
+app.delete('/users/:id', function(req, res){
   User
     .findOne(req.params.id)
     .then(function(user){
