@@ -8,7 +8,7 @@ App.Views.CommentsListView = Backbone.View.extend({
 		console.log('new COMMENTS LIST VIEW created');
 		this.render();
 		this.listenTo(this.collection, 'reset', this.render);
-		this.listenTo(this.collection, 'add', this.render);
+		this.listenTo(this.collection, 'add', this.renderComment);
 	},
 
 	render: function() {
@@ -16,6 +16,6 @@ App.Views.CommentsListView = Backbone.View.extend({
 	},
 
 	renderComment: function(commentModel) {
-		this.$el.prepend(new App.View.Comment({ model: commentModel }).$el);
+		$('#main').prepend(new App.Views.Comment({ model: commentModel }).$el);
 	}
 });

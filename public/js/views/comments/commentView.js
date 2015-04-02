@@ -6,12 +6,13 @@ App.Views.Comment = Backbone.View.extend({
 
 	initialize: function() {
 		console.log('new COMMENT VIEW created');
-		this.userViewTemplate = Handlebars.compile($("#comment-view-template").html());
+		this.commentViewTemplate = Handlebars.compile($("#comment-view-template").html());
 		this.renderView();
 	},
 
 	renderView: function() {
 		this.$el.html(this.commentViewTemplate(this.model.toJSON()));
+		this.$el.appendTo($('#main'));
 	},
 
 	events: {
