@@ -8,27 +8,27 @@
 
 	<script src='js/collections/artworks.js'></script>
 	<script src='js/collections/comments.js'></script>
-	<script src='js/collections/users.js'></script>	
+	<script src='js/collections/users.js'></script>
 
 	<script src='js/models/artwork.js'></script>
 	<script src='js/models/comment.js'></script>
 	<script src='js/models/user.js'></script>
 
-	<script src='js/views/artworks/artworkPreview.js'></script>		
+	<script src='js/views/artworks/artworkPreview.js'></script>
 	<script src='js/views/artworks/artworksListView.js'></script>
 
 	<script src='js/views/comments/commentsListView.js'></script>
 	<script src='js/views/comments/commentView.js'></script>
-	<script src='js/views/comments/editCommentView.js'></script>		
+	<script src='js/views/comments/editCommentView.js'></script>
 	<script src='js/views/comments/newCommentView.js'></script>
 
-	<script src='js/views/users/editUserView.js'></script>		
+	<script src='js/views/users/editUserView.js'></script>
 	<script src='js/views/users/newUserView.js'></script>
-	<script src='js/views/users/usersListView.js'></script>	
+	<script src='js/views/users/usersListView.js'></script>
 	<script src='js/views/users/userView.js'></script>
 
-	<script src='js/views/modalView.js'></script>	
-	<script src='js/views/navigationView.js'></script>									
+	<script src='js/views/modalView.js'></script>
+	<script src='js/views/navigationView.js'></script>
 
 
 </head>
@@ -43,6 +43,7 @@
 			<p class='name'>{{name}}</p>
 			<p class='username'>{{username}}</p>
 			<p class='bio'>{{bio}}</p>
+			<input type="button" name="edit" value="Edit">
 		</div>
 	</template>
 
@@ -56,11 +57,11 @@
 	</template>
 
 	<template id="edit-user-template">
-		<input type="text" class="name" value="{{name}}">
-		<input type="text" class="username" value="{{username}}">
-		<input type="text" class="password" value="{{password}}">
-		<input type="text" class="bio" value="{{bio}}">
-		<input class="image" value="{{avatar}}">
+		<input type="text" name="name" value="{{name}}">
+		<input type="text" name="username" value="{{username}}">
+		<input type="text" name="password" value="{{password}}">
+		<input type="text" name="bio" value="{{bio}}">
+		<input name="avatar" value="{{avatar}}">
 		<button class="edit">EDIT</button>
 		<button class="delete">DELETE</button>
 	</template>
@@ -115,7 +116,7 @@
 <!-- 		<input class="image" value="{{avatar}}"> -->
 		<button class="edit">EDIT</button>
 		<button class="delete">DELETE</button>
-	</template>	
+	</template>
 
 
 

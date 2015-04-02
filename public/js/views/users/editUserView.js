@@ -9,7 +9,8 @@ App.Views.EditUser = Backbone.View.extend({
 	},
 
 	render: function() {
-		this.$el.html(this.template(this.model.toJSON()));
+		var renderedTemplate = this.template(this.model.toJSON());
+		this.$el.html(renderedTemplate);
 		$('#main').append(this.$el);
 	},
 
@@ -19,15 +20,20 @@ App.Views.EditUser = Backbone.View.extend({
 	},
 
 	editUser: function() {
-		if (this.$(".user").val()) {
+		console.log('edit triggered');
+		console.log($('input[name="name"]').val());
+		if (this.$('input[name="name"]').val()) {
 			var data = {
-				name: this.$('.name').val(),
-				username: this.$('.username').val(),
-				password: this.$('.password').val(),
-				bio: this.$('.bio').val(),
-				image: this.$('.image').val(),
+				name: this.$('input[name="name"]').val(),
+				username: this.$('input[name="username"]').val(),
+				password: this.$('input[name="password"]').val(),
+				bio: this.$('input[name="bio"]').val(),
+				avatar: this.$('input[name="avatar"]').val(),
 			}
-			App.Users.get(this.model.id).save(data);
+			console.log(data);
+			var userModel = App.usersCollection.get(this.model.id);
+			userModel.save(data);
+			//App.usersCollection.get(this.model.id).save(data);
 		}
 	},
 
