@@ -1,4 +1,4 @@
-App.Views.ArtworkListView = Backbobne.View.extend({
+App.Views.ArtworkListView = Backbone.View.extend({
 
 	tagName: 'section',
 
@@ -15,7 +15,7 @@ App.Views.ArtworkListView = Backbobne.View.extend({
 		this.collection.each(this.renderArtwork, this);
 	},
 
-	renderArtwork: function() {
-		this.$el.prepend(new App.Views.Artwork({ model: artwork}).$el);
+	renderArtwork: function(artworkModel) {
+		$('#main').prepend(new App.Views.Artwork({ model: artworkModel}).$el);
 	}
 });

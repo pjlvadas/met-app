@@ -4,7 +4,7 @@ App.Collections.Artworks = Backbone.Collection.extend({
 		console.log('new ARTWORKS COLLECTION created');
 	},
 
-	url: '/artworks',
+	url: '/artworks'
 
-	model: App.Models.Artwork
+	//model: App.Models.Artwork
 });

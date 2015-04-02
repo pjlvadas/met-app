@@ -3,7 +3,7 @@ App.Views.ArtworkModal = Backbone.View.extend({
 
 	initialize: function() {
 		console.log("new MODAL VIEW created");
-		this.template = Handlebars.compile($("#modal-view-template").html());
+		this.template = Handlebars.compile($("#artwork-modal-template").html());
 	},
 
 	render: function() {
