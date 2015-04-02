@@ -77,11 +77,16 @@
 		<div class="modal-view">
 			<img src="{{img_url}}" alt="">
 			<p class="artist">{{artist}}</p>
-			<p class="title">{{title}}}</p>
+			<p class="title">{{title}}</p>
 			<p class="medium">{{medium}}</p>
 			<p class="start_date">{{startDate}}</p>
 			<p class="end_date">{{endDate}}</p>
 			<p class="culture">{{culture}}</p>
+			<ul class="comments-list">
+				{{#each comment}}
+				<li>{{content}} {{date}}</li>
+				{{/each}}
+			</ul>
 		<h2 id="close">CLOSE</h2>
 		</div>
 	</template>
