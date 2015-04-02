@@ -108,7 +108,7 @@ app.post('/artworks', function(req, res) {
   Artwork
     .create(req.body)
     .then(function(newArtwork) {
-      res.send(newArtWork);
+      res.send(newArtwork);
     });
 });
 
@@ -148,7 +148,20 @@ app.post('/users/:id/comments', function(req, res){
           res.send(newComment);
         });
     });
-});
+});  
+
+app.post('/artworks/:id/comments', function(req, res){
+  Artwork
+    .findOne(req.params.id)
+    .then(function(artwork){
+      Comment
+        .create(req.body)
+        .then(function(newComment){
+          artwork.addComment(newComment)
+          res.send(newComment);
+        });
+    });
+});  
 
 app.put('/comments/:id', function(req, res){
   Comment
