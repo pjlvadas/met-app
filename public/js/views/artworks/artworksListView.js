@@ -1,4 +1,4 @@
-App.Views.ArtworkListView = Backbobne.View.extend({
+App.Views.ArtworksListView = Backbone.View.extend({
 
 	tagName: 'section',
 

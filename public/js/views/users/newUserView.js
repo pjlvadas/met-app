@@ -11,6 +11,7 @@ App.Views.NewUser = Backbone.View.extend({
 
 	render: function() {
 		this.$el.html(this.template());
+		$('#main').append(this.$el);
 	},
 
 	events: {
@@ -29,5 +30,5 @@ App.Views.NewUser = Backbone.View.extend({
 			App.users.create(data);
 		}
 	}
-	
+
 });
