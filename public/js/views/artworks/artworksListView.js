@@ -1,4 +1,3 @@
-
 App.Views.ArtworksListView = Backbone.View.extend({
 
 
