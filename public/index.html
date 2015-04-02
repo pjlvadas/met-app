@@ -37,6 +37,19 @@
 	<div id="main"></div>
 	<div id="artwork-modal"></div>
 
+	<template id="navigation-view-template">
+	<div id="navigation-container">
+		<section id'search-section'>
+			<input type="text" name='search'>
+			<select name="search-type">
+				<option value="artist">Artist Search</option>
+				<option value="culture">Culture Search</option>
+			</select>
+			<button id="search-button">Search</button>
+		</section>
+	</div>	
+	</template>
+	
 	<template id="user-view-template">
 		<div class='user-view'>
 			<img src='{{avatar}}' alt="">
