@@ -9,7 +9,8 @@ App.Views.EditUser = Backbone.View.extend({
 	},
 
 	render: function() {
-		this.$el.htm(this.template(this.model.toJSON()));
+		this.$el.html(this.template(this.model.toJSON()));
+		$('#main').append(this.$el);
 	},
 
 	events: {

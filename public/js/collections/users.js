@@ -1,10 +1,10 @@
-App.Collection.Users = Backbone.Collection.extend({
+App.Collections.Users = Backbone.Collection.extend({
 
 	initalize: function(){
 		console.log('new USERS COLLECTION created');
 	},
 
-	url: '/users', 
+	url: '/users'
 
-	model: App.Models.User
+	// model: App.Models.User
 });
