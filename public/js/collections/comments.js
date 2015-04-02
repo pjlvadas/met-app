@@ -4,7 +4,7 @@ App.Collections.Comments = Backbone.Collection.extend({
 		console.log('new COMMENTS COLLECTION created');
 	},
 
-	url: '/comments',
+	url: '/comments'
 
-	model: App.Models.Comment
+	// model: App.Models.Comment
 });
