@@ -13,9 +13,9 @@ $(function() {
 	App.artworksCollectionView = new App.Views.ArtworksListView({ collection: App.artworkCollection });
 	App.commentsCollection = new App.Collections.Comments;
 	App.commmentsCollectionView = new App.Views.CommentsListView({ collection: App.commentsCollection });
+	App.artworkModalView = new App.Views.ArtworkModal;
+	//App.navigateView = new App.Views.NavigationView;
 	App.artworksSearchView = new App.Views.ArtworksNavView;
-	//App.artworkModalView = new App.Views.ArtworkModal;
-	// App.navigateView = new App.Views.NavigationView;
 	App.usersCollection.fetch();
 	App.artworkCollection.fetch();
 });
