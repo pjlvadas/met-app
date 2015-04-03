@@ -11,16 +11,13 @@ App.Views.ArtworksNavView = Backbone.View.extend({
 	},
 
 	renderNav: function(){
-
-		var renderedTemplate = this.artworkNavTemplate(this.model.toJSON());
-
-		this.$el.html(renderedTemplate);
-
+		// var renderedTemplate = this.artworkNavTemplate(this.model.toJSON());
+		this.$el.html(this.artworkNavTemplate(this.model.toJSON()));
 		this.$el.appendTo($('#main'));
 	},
 
 	events: {
-		'click .artwork-preview': 'showModal'
+		'click .search-view': 'showModal'
 	},
 
 	showModal: function(){
