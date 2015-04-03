@@ -16,11 +16,8 @@ $(function() {
 	App.artworkModalView = new App.Views.ArtworkModal;
 	//App.navigateView = new App.Views.NavigationView;
 	App.artworksSearchView = new App.Views.ArtworksNavView;
-<<<<<<< HEAD
 	//App.artworkModalView = new App.Views.ArtworkModal;
 	//App.navigateView = new App.Views.NavigationView;
-=======
->>>>>>> f445af4d0010a24996566333e665aa1c6c818ab2
 	App.usersCollection.fetch();
 	App.artworkCollection.fetch();
 });

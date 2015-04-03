@@ -21,18 +21,6 @@ App.Views.ArtworksNavView = Backbone.View.extend({
 	},
 
 	showModal: function(){
-<<<<<<< HEAD
-		debugger;
-		App.artworkModalView.model = this.model;
-		App.artworkModalView.render();
-		App.artworkModalView.showModal();
-=======
-
-		console.log('showModal triggered');
-		console.log(this.model);
-
 		new App.Views.ArtworkModal({model: this.model});
-		
->>>>>>> f445af4d0010a24996566333e665aa1c6c818ab2
 	}
 });

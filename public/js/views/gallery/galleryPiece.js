@@ -12,7 +12,7 @@ App.Views.GalleryPiece = Backbone.View.extend({
     console.log(this.model.toJSON());
     this.$el.html(renderedTemplate);
     $('#my-gallery').append(this.$el);
-  }
+  },
 
   events: {
     'click img': 'modal'
