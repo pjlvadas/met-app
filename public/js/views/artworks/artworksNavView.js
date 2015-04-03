@@ -20,12 +20,15 @@ App.Views.ArtworksNavView = Backbone.View.extend({
 	},
 
 	events: {
-		'click .artwork-preview': 'showModal'
+		'click .search-view': 'showModal'
 	},
 
 	showModal: function(){
-		App.artworkModalView.model = this.model;
-		App.artworkModalView.render();
-		App.artworkModalView.showModal();
+
+		console.log('showModal triggered');
+		console.log(this.model);
+
+		new App.Views.ArtworkModal({model: this.model});
+		
 	}
 });
