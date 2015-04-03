@@ -2,7 +2,7 @@ var App = {
 	Models: {},
 	Collections: {},
 	Views: {},
-	Routers: {}
+	router: {}
 };
 
 $(function() {
@@ -16,6 +16,6 @@ $(function() {
 	//App.artworkModalView = new App.Views.ArtworkModal;
 	//App.navigateView = new App.Views.NavigationView;
 	App.artworksSearchView = new App.Views.ArtworksNavView;
-	App.usersCollection.fetch();
-	App.artworkCollection.fetch();
+	new App.router;
+	Backbone.history.start();
 });
