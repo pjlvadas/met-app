@@ -4,7 +4,7 @@ App.Collections.Users = Backbone.Collection.extend({
 		console.log('new USERS COLLECTION created');
 	},
 
-	url: 'users'
+	url: '/users'
 
 	// model: App.Models.User
 });

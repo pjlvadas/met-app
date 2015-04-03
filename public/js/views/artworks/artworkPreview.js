@@ -7,7 +7,7 @@ App.Views.Artwork = Backbone.View.extend({
 	initialize: function(){
 		console.log('new ARTWORK PREVIEW VIEW created');
 		this.artworkPreviewTemplate = Handlebars.compile($('#artwork-preview-template').html());
-		this.renderPreview();
+		//this.renderPreview();
 	},
 
 	renderPreview: function(){
@@ -24,5 +24,5 @@ App.Views.Artwork = Backbone.View.extend({
 		App.artworkModalView.render();
 		App.artworkModalView.showModal();
 	}
-	
+
 });

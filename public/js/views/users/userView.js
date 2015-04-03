@@ -29,10 +29,13 @@ App.Views.User = Backbone.View.extend({
 	showModalView: function(e) {
 		var artwork = this.model.get('artworks');
 		var artworkId = $(e.currentTarget).data().id;
-		App.artworkCollection.fetch()
-			.done(function(artworks) {
-				console.log(artworks);
-			});
+		var artworkModel = App.artworkCollection.get(artworkId);
+		console.log(artworkModel);
+		var modal = new App.Views.ArtworkModal({model: artworkModel});
+		// App.artworkCollection.fetch()
+		// 	.done(function(artworks) {
+		// 		console.log(artworks);
+		// 	});
 		// var artwork = new App.Models.Artwork(this.)
 	}
 });
