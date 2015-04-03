@@ -28,6 +28,9 @@
 	<script src='js/views/users/usersListView.js'></script>
 	<script src='js/views/users/userView.js'></script>
 
+	<script src='js/views/gallery/gallery.js'></script>
+	<script src='js/views/gallery/galleryPiece.js'></script>
+
 	<script src='js/views/modalView.js'></script>
 	<script src='js/views/navigationView.js'></script>
 
@@ -69,12 +72,26 @@
 			<p class='username'>{{username}}</p>
 			<p class='bio'>{{bio}}</p>
 			<input type="button" name="edit" value="Edit">
-			{{#each artworks}}
-			<div class="my-gallery" data-id={{this.id}}>
-				<img src="{{this.img_url}}" alt="image"/>
-			</div>
-			{{/each}}
+		<div id="my-gallery">
 		</div>
+		</div>
+	</template>
+
+	<template id="gallery-piece">
+
+		<img src="{{img_url}}" alt="gallery piece" />
+		<p>
+			{{title}}
+		</p>
+		<p>
+			{{artist}}
+		</p>
+		<p>
+			{{medium}}
+		</p>
+		<p>
+			{{culture}}
+		</p>
 	</template>
 
 	<template id="new-user-template">
