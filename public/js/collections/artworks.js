@@ -1,5 +1,4 @@
 App.Collections.Artworks = Backbone.Collection.extend({
-
 	initalize: function(){
 		console.log('new ARTWORKS COLLECTION created');
 	},

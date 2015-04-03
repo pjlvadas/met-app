@@ -9,7 +9,6 @@ App.Views.GalleryPiece = Backbone.View.extend({
 
   render: function() {
     var renderedTemplate = this.template(this.model.toJSON());
-    console.log(this.model.toJSON());
     this.$el.html(renderedTemplate);
     $('#my-gallery').append(this.$el);
   },
@@ -19,7 +18,7 @@ App.Views.GalleryPiece = Backbone.View.extend({
   },
 
   modal: function() {
-    new App.Views.ArtworkModal({model: this.modal})
+    new App.Views.ArtworkModal({model: this.model})
   }
 
 });
