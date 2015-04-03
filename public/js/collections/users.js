@@ -1,10 +1,17 @@
 App.Collections.Users = Backbone.Collection.extend({
 
-	initalize: function(){
+	initialize: function(){
 		console.log('new USERS COLLECTION created');
 	},
 
-	url: '/users'
+	url: '/users',
 
-	// model: App.Models.User
+	parse: function(data) {
+		console.log(data.name);
+		this.gallery = new App.Collections.Artworks();
+		this.gallery.add(data.artworks);
+		return data;
+	},
+
+	model: App.Models.User
 });

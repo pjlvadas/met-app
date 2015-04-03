@@ -1,8 +1,8 @@
 App.Views.UsersListView = Backbone.View.extend({
 
-	tagName: 'section',
-
-	className: 'users',
+	// tagName: 'section',
+	//
+	// className: 'users',
 
 	initialize: function() {
 		console.log('new USERS LIST VIEW created');
@@ -16,6 +16,6 @@ App.Views.UsersListView = Backbone.View.extend({
 	},
 
 	renderUser: function(userModel) {
-		this.$el.prepend(new App.Views.User({ model: userModel }).$el);
+		var userView = new App.Views.User({model: userModel});
 	}
 });

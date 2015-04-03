@@ -6,29 +6,30 @@
 	<script src='bundle.js'></script>
 	<script src='js/app.js'></script>
 
-	<script src='js/collections/artworks.js'></script>
-	<script src='js/collections/comments.js'></script>
-	<script src='js/collections/users.js'></script>	
-
 	<script src='js/models/artwork.js'></script>
 	<script src='js/models/comment.js'></script>
 	<script src='js/models/user.js'></script>
 
-	<script src='js/views/artworks/artworkPreview.js'></script>		
+	<script src='js/collections/artworks.js'></script>
+	<script src='js/collections/comments.js'></script>
+	<script src='js/collections/users.js'></script>
+
+	<script src='js/views/artworks/artworkPreview.js'></script>
 	<script src='js/views/artworks/artworksListView.js'></script>
+	<script src='js/views/artworks/artworksNavView.js'></script>
 
 	<script src='js/views/comments/commentsListView.js'></script>
 	<script src='js/views/comments/commentView.js'></script>
-	<script src='js/views/comments/editCommentView.js'></script>		
+	<script src='js/views/comments/editCommentView.js'></script>
 	<script src='js/views/comments/newCommentView.js'></script>
 
-	<script src='js/views/users/editUserView.js'></script>		
+	<script src='js/views/users/editUserView.js'></script>
 	<script src='js/views/users/newUserView.js'></script>
-	<script src='js/views/users/usersListView.js'></script>	
+	<script src='js/views/users/usersListView.js'></script>
 	<script src='js/views/users/userView.js'></script>
 
-	<script src='js/views/modalView.js'></script>	
-	<script src='js/views/navigationView.js'></script>									
+	<script src='js/views/modalView.js'></script>
+	<script src='js/views/navigationView.js'></script>
 
 
 </head>
@@ -37,12 +38,42 @@
 	<div id="main"></div>
 	<div id="artwork-modal"></div>
 
+	<template id="navigation-view-template">
+	<div id="navigation-container">
+		<section id'search-section'>
+			<input type="text" name='search'>
+			<select name="search-type">
+				<option value="artist">Artist Search</option>
+				<option value="culture">Culture Search</option>
+			</select>
+			<button id="search-button">Search</button>
+		</section>
+	</div>
+	</template>
+
+	<template id="artwork-nav-view-template">
+		<div class="search-view">
+			<img src="{{img_url}}" alt="">
+			<p class="artist">{{artist}}</p>
+			<p class="title">{{title}}</p>
+			<p class="start_date">{{startDate}}</p>
+			<p class="end_date">{{endDate}}</p>
+			<p class="culture">{{culture}}</p>
+		</div>
+	</template>
+
 	<template id="user-view-template">
 		<div class='user-view'>
 			<img src='{{avatar}}' alt="">
 			<p class='name'>{{name}}</p>
 			<p class='username'>{{username}}</p>
 			<p class='bio'>{{bio}}</p>
+			<input type="button" name="edit" value="Edit">
+			{{#each artworks}}
+			<div class="my-gallery" data-id={{this.id}}>
+				<img src="{{this.img_url}}" alt="image"/>
+			</div>
+			{{/each}}
 		</div>
 	</template>
 
@@ -56,11 +87,11 @@
 	</template>
 
 	<template id="edit-user-template">
-		<input type="text" class="name" value="{{name}}">
-		<input type="text" class="username" value="{{username}}">
-		<input type="text" class="password" value="{{password}}">
-		<input type="text" class="bio" value="{{bio}}">
-		<input class="image" value="{{avatar}}">
+		<input type="text" name="name" value="{{name}}">
+		<input type="text" name="username" value="{{username}}">
+		<input type="text" name="password" value="{{password}}">
+		<input type="text" name="bio" value="{{bio}}">
+		<input name="avatar" value="{{avatar}}">
 		<button class="edit">EDIT</button>
 		<button class="delete">DELETE</button>
 	</template>
@@ -68,8 +99,8 @@
 	<template id="artwork-preview-template">
 		<div class="artwork-preview">
 			<img src="{{img_url}}" alt="">
-			<p class="title">{{title}}</p>
 			<p class="artist">{{artist}}</p>
+			<p class="title">{{title}}</p>
 		</div>
 	</template>
 
@@ -84,7 +115,11 @@
 			<p class="culture">{{culture}}</p>
 			<ul class="comments-list">
 				{{#each comments}}
+<<<<<<< HEAD
 				<li>{{content}} {{date}}</li>
+=======
+				<li>{{this.content}}</li>
+>>>>>>> a2f11020387e44f2179ad74fad63d202fe4b922a
 				{{/each}}
 			</ul>
 		<h2 id="close">CLOSE</h2>
@@ -115,7 +150,7 @@
 <!-- 		<input class="image" value="{{avatar}}"> -->
 		<button class="edit">EDIT</button>
 		<button class="delete">DELETE</button>
-	</template>	
+	</template>
 
 
 
