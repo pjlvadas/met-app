@@ -11,16 +11,28 @@ App.Views.User = Backbone.View.extend({
 	},
 
 	renderView: function() {
+		console.log(this.model);
 		var renderedTemplate = this.userViewTemplate(this.model.toJSON());
 		this.$el.html(renderedTemplate);
 		$('#main').append(this.$el);
 	},
 
 	events: {
-		'click input[name="edit"]': "showEditView"
+		'click input[name="edit"]': "showEditView",
+		'click .my-gallery': "showModalView"
 	},
 
 	showEditView: function() {
 		var editView = new App.Views.EditUser({model: this.model});
+	},
+
+	showModalView: function(e) {
+		var artwork = this.model.get('artworks');
+		var artworkId = $(e.currentTarget).data().id;
+		App.artworkCollection.fetch()
+			.done(function(artworks) {
+				console.log(artworks);
+			});
+		// var artwork = new App.Models.Artwork(this.)
 	}
 });
