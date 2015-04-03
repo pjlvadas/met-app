@@ -20,13 +20,13 @@ App.Views.NavigationView = Backbone.View.extend({
 		var query = this.$('[name="search"]').val();
 		console.log(searchItem);
 		console.log(query);
-
+		//data.collection.items.length
 		if (searchItem === 'artist') {
 			$.ajax({
 				url: 'http://scrapi.org/search/' + query,
 				method: 'GET'
 			}).done(function(data){
-				for (var i = 0; i < data.collection.items.length; i++){
+				for (var i = 0; i < 10; i++){
 					var newModel = new App.Models.Artwork(data.collection.items[i]);
 					// console.log(newModel);
 					new App.Views.ArtworksNavView({ model: newModel });
@@ -37,7 +37,7 @@ App.Views.NavigationView = Backbone.View.extend({
 				url: 'http://scrapi.org/search/' + query,
 				method: 'GET'
 			}).done(function(data){
-				for (var i = 0; i < data.collection.items.length; i++){
+				for (var i = 0; i < 10; i++){
 					var newModel = new App.Models.Artwork(data.collection.items[i]);
 					// console.log(newModel);
 					new App.Views.ArtworksNavView({ model: newModel });

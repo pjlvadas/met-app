@@ -15,9 +15,9 @@ App.Views.Artwork = Backbone.View.extend({
 		this.$el.appendTo($('#main'));
 	},
 
-	var imageUrlObject = {
-		img_url: data.image_thumb;
-	},
+	// var imageUrlObject = {
+	// 	img_url: data.image_thumb;
+	// },
 
 	events: {
 		'click .artwork-preview': 'showModal'

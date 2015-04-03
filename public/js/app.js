@@ -7,19 +7,11 @@ var App = {
 
 $(function() {
 	console.log('Loaded, bro.');
-	App.usersCollection = new App.Collections.Users;
-	App.usersCollectionView = new App.Views.UsersListView({ collection: App.usersCollection });
-	App.artworkCollection = new App.Collections.Artworks;
-	App.artworksCollectionView = new App.Views.ArtworksListView({ collection: App.artworkCollection });
-	App.commentsCollection = new App.Collections.Comments;
-	App.commmentsCollectionView = new App.Views.CommentsListView({ collection: App.commentsCollection });
-	//App.artworkModalView = new App.Views.ArtworkModal;
-	//App.navigateView = new App.Views.NavigationView;
-	App.artworksSearchView = new App.Views.ArtworksNavView;
-	//App.artworkModalView = new App.Views.ArtworkModal;
-	//App.navigateView = new App.Views.NavigationView;
+	App.usersCollection = new App.Collections.Users();
+	App.artworkCollection = new App.Collections.Artworks();
+	App.commentsCollection = new App.Collections.Comments();
 	App.usersCollection.fetch();
 	App.artworkCollection.fetch();
-	new App.router;
+	App.router = new App.router();
 	Backbone.history.start();
 });
