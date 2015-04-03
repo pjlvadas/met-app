@@ -22,8 +22,8 @@ App.Views.ArtworkModal = Backbone.View.extend({
 	},
 
 	renderComments: function() {
-		this.$('.modal-view').html((new App.Views.Comments({ 
-		  collection: this.model.artComments 
+		this.$('.modal-view').html((new App.Views.Comments({
+		  collection: this.model.artComments
 		})).$el);
 	},
 

@@ -54,6 +54,16 @@
 	</div>
 	</template>
 
+	<template id="artwork-nav-view-template">
+		<div class="search-view">
+			<img src="{{img_url}}" alt="">
+			<p class="artist">{{artist}}</p>
+			<p class="title">{{title}}</p>
+			<p class="start_date">{{startDate}}</p>
+			<p class="end_date">{{endDate}}</p>
+			<p class="culture">{{culture}}</p>
+		</div>
+	</template>
 
 	<template id="user-view-template">
 		<div class='user-view'>
@@ -68,20 +78,11 @@
 	</template>
 
 	<template id="gallery-piece">
-
 		<img src="{{img_url}}" alt="gallery piece" />
-		<p>
-			{{title}}
-		</p>
-		<p>
-			{{artist}}
-		</p>
-		<p>
-			{{medium}}
-		</p>
-		<p>
-			{{culture}}
-		</p>
+		<p>{{title}}</p>
+		<p>{{artist}}</p>
+		<p>{{medium}}</p>
+		<p>{{culture}}</p>
 	</template>
 
 	<template id="new-user-template">
@@ -102,21 +103,10 @@
 		<button class="edit">EDIT</button>
 		<button class="delete">DELETE</button>
 	</template>
-	
-	<template id="artwork-nav-view-template">
-		<div class="search-view">
-			<img src="{{image_thumb}}" alt="">
-			<p class="artist">{{artist}}</p>
-			<p class="title">{{title}}</p>
-			<p class="start_date">{{startDate}}</p>
-			<p class="end_date">{{endDate}}</p>
-			<p class="culture">{{culture}}</p>
-		</div>
-	</template>
 
 	<template id="artwork-preview-template">
 		<div class="artwork-preview">
-			<img src="{{image_thumb}}" alt="">
+			<img src="{{img_url}}" alt="">
 			<p class="artist">{{artist}}</p>
 			<p class="title">{{title}}</p>
 		</div>
@@ -124,7 +114,7 @@
 
 	<template id="artwork-modal-template">
 		<div class="modal-view">
-			<img src="{{image_thumb}}" alt="">
+			<img src="{{img_url}}" alt="">
 			<p class="artist">{{artist}}</p>
 			<p class="title">{{title}}</p>
 			<p class="medium">{{medium}}</p>
