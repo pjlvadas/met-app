@@ -1,6 +1,5 @@
 App.Views.ArtworksListView = Backbone.View.extend({
 
-
 	tagName: 'section',
 
 	className: 'artworks',

@@ -16,6 +16,7 @@
 
 	<script src='js/views/artworks/artworkPreview.js'></script>		
 	<script src='js/views/artworks/artworksListView.js'></script>
+	<script src='js/views/artworks/artworksNavView.js'></script>
 
 	<script src='js/views/comments/commentsListView.js'></script>
 	<script src='js/views/comments/commentView.js'></script>
@@ -49,7 +50,18 @@
 		</section>
 	</div>	
 	</template>
-	
+
+	<template id="artwork-nav-view-template">
+		<div class="search-view">
+			<img src="{{img_url}}" alt="">
+			<p class="artist">{{artist}}</p>
+			<p class="title">{{title}}</p>
+			<p class="start_date">{{startDate}}</p>
+			<p class="end_date">{{endDate}}</p>
+			<p class="culture">{{culture}}</p>
+		</div>
+	</template>
+
 	<template id="user-view-template">
 		<div class='user-view'>
 			<img src='{{avatar}}' alt="">
@@ -81,8 +93,8 @@
 	<template id="artwork-preview-template">
 		<div class="artwork-preview">
 			<img src="{{img_url}}" alt="">
-			<p class="title">{{title}}</p>
 			<p class="artist">{{artist}}</p>
+			<p class="title">{{title}}</p>
 		</div>
 	</template>
 

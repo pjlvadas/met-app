@@ -29,7 +29,7 @@ App.Views.NavigationView = Backbone.View.extend({
 				for (var i = 0; i < data.collection.items.length; i++){
 					var newModel = new App.Models.Artwork(data.collection.items[i]);
 					console.log(newModel);
-					new App.Views.Artwork({ model: newModel });
+					new App.Views.ArtworksNavView({ model: newModel });
 				}
 			});
 		} else if (searchItem === 'culture') {
@@ -40,7 +40,7 @@ App.Views.NavigationView = Backbone.View.extend({
 				for (var i = 0; i < data.collection.items.length; i++){
 					var newModel = new App.Models.Artwork(data.collection.items[i]);
 					console.log(newModel);
-					new App.Views.Artwork({ model: newModel });
+					new App.Views.ArtworksNavView({ model: newModel });
 				}
 			});
 		};
