@@ -6,13 +6,13 @@
 	<script src='bundle.js'></script>
 	<script src='js/app.js'></script>
 
-	<script src='js/collections/artworks.js'></script>
-	<script src='js/collections/comments.js'></script>
-	<script src='js/collections/users.js'></script>
-
 	<script src='js/models/artwork.js'></script>
 	<script src='js/models/comment.js'></script>
 	<script src='js/models/user.js'></script>
+
+	<script src='js/collections/artworks.js'></script>
+	<script src='js/collections/comments.js'></script>
+	<script src='js/collections/users.js'></script>
 
 	<script src='js/views/artworks/artworkPreview.js'></script>
 	<script src='js/views/artworks/artworksListView.js'></script>
@@ -114,8 +114,8 @@
 			<p class="end_date">{{endDate}}</p>
 			<p class="culture">{{culture}}</p>
 			<ul class="comments-list">
-				{{#each comment}}
-				<li>{{content}} {{date}}</li>
+				{{#each comments}}
+				<li>{{this.content}}</li>
 				{{/each}}
 			</ul>
 		<h2 id="close">CLOSE</h2>

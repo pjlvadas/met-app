@@ -4,14 +4,18 @@ App.Views.ArtworksNavView = Backbone.View.extend({
 
 	className: 'artworks',
 
-	initalize: function(){
+	initialize: function(){
 		console.log('ARTWORKS NAV VIEW CREATED');
 		this.artworkNavTemplate = Handlebars.compile($('#artwork-nav-view-template').html());
 		this.renderNav();
 	},
 
 	renderNav: function(){
-		this.$el.html(this.artworkNavTemplate(this.model.toJSON()));
+
+		var renderedTemplate = this.artworkNavTemplate(this.model.toJSON());
+
+		this.$el.html(renderedTemplate);
+
 		this.$el.appendTo($('#main'));
 	},
 
