@@ -44,7 +44,7 @@
 			<input type="text" name='search'>
 			<select name="search-type">
 				<option value="artist">Artist Search</option>
-				<option value="culture">Culture Search</option>
+				<option value="title">Title Search</option>
 			</select>
 			<button id="search-button">Search</button>
 		</section>
@@ -77,6 +77,14 @@
 		</div>
 	</template>
 
+	<template id="gallery-piece">
+		<img src="{{img_url}}" alt="gallery piece" />
+		<p>{{title}}</p>
+		<p>{{artist}}</p>
+		<p>{{date}}</p>
+		<p>{{medium}}</p>
+	</template>
+
 	<template id="new-user-template">
 		<input type="text" class="name">
 		<input type="text" class="username">
@@ -96,6 +104,17 @@
 		<button class="delete">DELETE</button>
 	</template>
 
+	<template id="artwork-nav-view-template">
+		<div class="search-view">
+			<img src="{{image_thumb}}" alt="">
+			<p class="artist">{{artist}}</p>
+			<p class="title">{{title}}</p>
+			<p class="date">{{date}}</p>
+			<p class="medium">{{medium}}</p>
+			<p class="gallery">{{gallery}}</p>
+		</div>
+	</template>
+
 	<template id="artwork-preview-template">
 		<div class="artwork-preview">
 			<img src="{{img_url}}" alt="">
@@ -109,10 +128,9 @@
 			<img src="{{img_url}}" alt="">
 			<p class="artist">{{artist}}</p>
 			<p class="title">{{title}}</p>
+			<p class="date">{{date}}</p>
 			<p class="medium">{{medium}}</p>
-			<p class="start_date">{{startDate}}</p>
-			<p class="end_date">{{endDate}}</p>
-			<p class="culture">{{culture}}</p>
+			<p class="gallery">{{gallery}}</p>
 			<ul class="comments-list">
 				{{#each comment}}
 				<li>{{content}} {{date}}</li>
