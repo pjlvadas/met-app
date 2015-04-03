@@ -47,7 +47,7 @@
 			<input type="text" name='search'>
 			<select name="search-type">
 				<option value="artist">Artist Search</option>
-				<option value="culture">Culture Search</option>
+				<option value="title">Title Search</option>
 			</select>
 			<button id="search-button">Search</button>
 		</section>
@@ -77,10 +77,10 @@
 			{{artist}}
 		</p>
 		<p>
-			{{medium}}
+			{{date}}
 		</p>
 		<p>
-			{{culture}}
+			{{medium}}
 		</p>
 	</template>
 
@@ -108,9 +108,9 @@
 			<img src="{{image_thumb}}" alt="">
 			<p class="artist">{{artist}}</p>
 			<p class="title">{{title}}</p>
-			<p class="start_date">{{startDate}}</p>
-			<p class="end_date">{{endDate}}</p>
-			<p class="culture">{{culture}}</p>
+			<p class="date">{{date}}</p>
+			<p class="medium">{{medium}}</p>
+			<p class="gallery">{{gallery}}</p>
 		</div>
 	</template>
 
@@ -127,10 +127,9 @@
 			<img src="{{image_thumb}}" alt="">
 			<p class="artist">{{artist}}</p>
 			<p class="title">{{title}}</p>
+			<p class="date">{{date}}</p>
 			<p class="medium">{{medium}}</p>
-			<p class="start_date">{{startDate}}</p>
-			<p class="end_date">{{endDate}}</p>
-			<p class="culture">{{culture}}</p>
+			<p class="gallery">{{gallery}}</p>
 			<ul class="comments-list">
 				{{#each comments}}
 				<li>{{this.content}}</li>
