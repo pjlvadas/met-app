@@ -1,5 +1,4 @@
 App.Views.ArtworkModal = Backbone.View.extend({
-	el: "#artwork-modal",
 
 	initialize: function() {
 		console.log("new MODAL VIEW created");
@@ -9,33 +8,20 @@ App.Views.ArtworkModal = Backbone.View.extend({
 	},
 
 	render: function() {
-		// debugger;
-		this.$el.html(this.template(this.model.toJSON()));
-		//console.log(this.model);
-	},
+		console.log(this.model);
+		var renderedTemplate = this.template(this.model.toJSON());
+		this.$el.html(renderedTemplate);
+		$('#artwork-modal').append(this.$el);
+		new App.Views.CommentsListView( {collection: this.model.comments} );
 
-	fetchAndRenderComments: function() {
-		// debugger;
-		this.model.fetch({
-			success: this.renderComments.bind(this)
-		});
-	},
-
-	renderComments: function() {
-		this.$('.modal-view').html((new App.Views.Comments({
-		  collection: this.model.artComments
-		})).$el);
 	},
 
 	events: {
-		'click #close': 'hideModal'
-	},
-
-	showModal: function() {
-		this.$el.show();
+		'click button': 'hideModal'
 	},
 
 	hideModal: function() {
+		console.log('click event triggered');
 		this.$el.hide();
 	}
 });

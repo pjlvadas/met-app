@@ -25,7 +25,11 @@ app.get('/', function(req, res) {
 
 app.get('/users', function(req, res){
   User
-    .findAll( {include: Artwork} )
+    .findAll( {include: [
+        {model: Artwork, include: [
+          {model: Comment}]
+          }]
+        })
     .then(function(users){
       res.send(users);
     });

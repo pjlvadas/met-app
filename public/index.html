@@ -72,8 +72,8 @@
 			<p class='username'>{{username}}</p>
 			<p class='bio'>{{bio}}</p>
 			<input type="button" name="edit" value="Edit">
-		<div id="my-gallery">
-		</div>
+				<div id="my-gallery">
+				</div>
 		</div>
 	</template>
 
@@ -121,22 +121,16 @@
 			<p class="start_date">{{startDate}}</p>
 			<p class="end_date">{{endDate}}</p>
 			<p class="culture">{{culture}}</p>
-			<ul class="comments-list">
-				{{#each comments}}
-				<li>{{this.content}}</li>
-				{{/each}}
-			</ul>
-		<h2 id="close">CLOSE</h2>
+				<div id="comments">
+				</div>
+			<button name='close' value='close'>Close</button>
 		</div>
 	</template>
 
 	<template id="comment-view-template">
-		<div class='user-view'>
-<!-- 			<img src='{{avatar}}' alt=""> -->
 			<p class='title'>{{title}}</p>
 			<p class='content'>{{content}}</p>
 			<p class='date'>{{date}}</p>
-		</div>
 	</template>
 
 	<template id="new-comment-template">

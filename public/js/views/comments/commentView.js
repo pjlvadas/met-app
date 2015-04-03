@@ -1,18 +1,15 @@
 App.Views.Comment = Backbone.View.extend({
 
-	tagName: 'aside',
-
-	className: 'comment',
-
 	initialize: function() {
 		console.log('new COMMENT VIEW created');
-		this.commentViewTemplate = Handlebars.compile($("#comment-view-template").html());
+		this.template = Handlebars.compile($("#comment-view-template").html());
 		this.renderView();
 	},
 
 	renderView: function() {
-		this.$el.html(this.commentViewTemplate(this.model.toJSON()));
-		this.$el.appendTo($('#main'));
+		var renderedTemplate = this.template(this.model.toJSON());
+		this.$el.html(renderedTemplate);
+		$('#comments').append(this.$el);
 	},
 
 	events: {
