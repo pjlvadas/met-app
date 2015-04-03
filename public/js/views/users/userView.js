@@ -11,7 +11,6 @@ App.Views.User = Backbone.View.extend({
 	},
 
 	renderView: function() {
-		console.log(this.model);
 		var renderedTemplate = this.userViewTemplate(this.model.toJSON());
 		this.$el.html(renderedTemplate);
 		$('#main').append(this.$el);

@@ -3,16 +3,18 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Title</title>
+	<link rel="stylesheet" href="/css/style.css" media="screen" title="no title" charset="utf-8">
 	<script src='bundle.js'></script>
 	<script src='js/app.js'></script>
+
+	<script src='js/models/artwork.js'></script>
+	<script src='js/models/comment.js'></script>
+	<script src='js/models/user.js'></script>
 
 	<script src='js/collections/artworks.js'></script>
 	<script src='js/collections/comments.js'></script>
 	<script src='js/collections/users.js'></script>
 
-	<script src='js/models/artwork.js'></script>
-	<script src='js/models/comment.js'></script>
-	<script src='js/models/user.js'></script>
 
 	<script src='js/views/artworks/artworkPreview.js'></script>
 	<script src='js/views/artworks/artworksListView.js'></script>
@@ -27,6 +29,9 @@
 	<script src='js/views/users/newUserView.js'></script>
 	<script src='js/views/users/usersListView.js'></script>
 	<script src='js/views/users/userView.js'></script>
+
+	<script src='js/views/gallery/gallery.js'></script>
+	<script src='js/views/gallery/galleryPiece.js'></script>
 
 	<script src='js/views/modalView.js'></script>
 	<script src='js/views/navigationView.js'></script>
@@ -76,11 +81,8 @@
 			<p class='username'>{{username}}</p>
 			<p class='bio'>{{bio}}</p>
 			<input type="button" name="edit" value="Edit">
-			{{#each artworks}}
-			<div class="my-gallery" data-id={{this.id}}>
-				<img src="{{this.img_url}}" alt="image"/>
+			<div id="my-gallery">
 			</div>
-			{{/each}}
 		</div>
 	</template>
 
@@ -138,12 +140,9 @@
 			<p class="date">{{date}}</p>
 			<p class="medium">{{medium}}</p>
 			<p class="gallery">{{gallery}}</p>
-			<ul class="comments-list">
-				{{#each comment}}
-				<li>{{content}} {{date}}</li>
-				{{/each}}
-			</ul>
-		<h2 id="close">CLOSE</h2>
+				<div id="comments">
+				</div>
+		<button id="close">CLOSE<button>
 		</div>
 	</template>
 
