@@ -28,6 +28,9 @@
 	<script src='js/views/users/usersListView.js'></script>
 	<script src='js/views/users/userView.js'></script>
 
+	<script src='js/views/gallery/gallery.js'></script>
+	<script src='js/views/gallery/galleryPiece.js'></script>
+
 	<script src='js/views/modalView.js'></script>
 	<script src='js/views/navigationView.js'></script>
 
@@ -51,16 +54,6 @@
 	</div>
 	</template>
 
-	<template id="artwork-nav-view-template">
-		<div class="search-view">
-			<img src="{{img_url}}" alt="">
-			<p class="artist">{{artist}}</p>
-			<p class="title">{{title}}</p>
-			<p class="start_date">{{startDate}}</p>
-			<p class="end_date">{{endDate}}</p>
-			<p class="culture">{{culture}}</p>
-		</div>
-	</template>
 
 	<template id="user-view-template">
 		<div class='user-view'>
@@ -69,12 +62,26 @@
 			<p class='username'>{{username}}</p>
 			<p class='bio'>{{bio}}</p>
 			<input type="button" name="edit" value="Edit">
-			{{#each artworks}}
-			<div class="my-gallery" data-id={{this.id}}>
-				<img src="{{this.img_url}}" alt="image"/>
-			</div>
-			{{/each}}
+		<div id="my-gallery">
 		</div>
+		</div>
+	</template>
+
+	<template id="gallery-piece">
+
+		<img src="{{img_url}}" alt="gallery piece" />
+		<p>
+			{{title}}
+		</p>
+		<p>
+			{{artist}}
+		</p>
+		<p>
+			{{medium}}
+		</p>
+		<p>
+			{{culture}}
+		</p>
 	</template>
 
 	<template id="new-user-template">
@@ -95,10 +102,21 @@
 		<button class="edit">EDIT</button>
 		<button class="delete">DELETE</button>
 	</template>
+	
+	<template id="artwork-nav-view-template">
+		<div class="search-view">
+			<img src="{{image_thumb}}" alt="">
+			<p class="artist">{{artist}}</p>
+			<p class="title">{{title}}</p>
+			<p class="start_date">{{startDate}}</p>
+			<p class="end_date">{{endDate}}</p>
+			<p class="culture">{{culture}}</p>
+		</div>
+	</template>
 
 	<template id="artwork-preview-template">
 		<div class="artwork-preview">
-			<img src="{{img_url}}" alt="">
+			<img src="{{image_thumb}}" alt="">
 			<p class="artist">{{artist}}</p>
 			<p class="title">{{title}}</p>
 		</div>
@@ -106,7 +124,7 @@
 
 	<template id="artwork-modal-template">
 		<div class="modal-view">
-			<img src="{{img_url}}" alt="">
+			<img src="{{image_thumb}}" alt="">
 			<p class="artist">{{artist}}</p>
 			<p class="title">{{title}}</p>
 			<p class="medium">{{medium}}</p>

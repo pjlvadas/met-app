@@ -11,7 +11,11 @@ App.Views.ArtworkModal = Backbone.View.extend({
 	render: function() {
 		// debugger;
 		this.$el.html(this.template(this.model.toJSON()));
+<<<<<<< HEAD
 		// console.log(this.model);
+=======
+		//console.log(this.model);
+>>>>>>> f445af4d0010a24996566333e665aa1c6c818ab2
 	},
 
 	fetchAndRenderComments: function() {
