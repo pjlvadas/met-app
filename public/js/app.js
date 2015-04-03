@@ -15,7 +15,7 @@ $(function() {
 	App.commmentsCollectionView = new App.Views.CommentsListView({ collection: App.commentsCollection });
 	App.artworksSearchView = new App.Views.ArtworksNavView;
 	//App.artworkModalView = new App.Views.ArtworkModal;
-	// App.navigateView = new App.Views.NavigationView;
+	//App.navigateView = new App.Views.NavigationView;
 	App.usersCollection.fetch();
 	App.artworkCollection.fetch();
 });

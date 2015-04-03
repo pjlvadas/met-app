@@ -1,8 +1,8 @@
 App.Views.ArtworksNavView = Backbone.View.extend({
 
-	tagName: 'section',
+	tagName: 'aside',
 
-	className: 'artworks',
+	className: 'artwork',
 
 	initialize: function(){
 		console.log('ARTWORKS NAV VIEW CREATED');
@@ -21,6 +21,7 @@ App.Views.ArtworksNavView = Backbone.View.extend({
 	},
 
 	showModal: function(){
+		debugger;
 		App.artworkModalView.model = this.model;
 		App.artworkModalView.render();
 		App.artworkModalView.showModal();

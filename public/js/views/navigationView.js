@@ -28,7 +28,7 @@ App.Views.NavigationView = Backbone.View.extend({
 			}).done(function(data){
 				for (var i = 0; i < data.collection.items.length; i++){
 					var newModel = new App.Models.Artwork(data.collection.items[i]);
-					console.log(newModel);
+					// console.log(newModel);
 					new App.Views.ArtworksNavView({ model: newModel });
 				}
 			});
@@ -39,7 +39,7 @@ App.Views.NavigationView = Backbone.View.extend({
 			}).done(function(data){
 				for (var i = 0; i < data.collection.items.length; i++){
 					var newModel = new App.Models.Artwork(data.collection.items[i]);
-					console.log(newModel);
+					// console.log(newModel);
 					new App.Views.ArtworksNavView({ model: newModel });
 				}
 			});
