@@ -48,7 +48,7 @@
 			</select>
 			<button id="search-button">Search</button>
 		</section>
-	</div>	
+	</div>
 	</template>
 
 	<template id="artwork-nav-view-template">
@@ -69,6 +69,11 @@
 			<p class='username'>{{username}}</p>
 			<p class='bio'>{{bio}}</p>
 			<input type="button" name="edit" value="Edit">
+			{{#each artworks}}
+			<div class="my-gallery" data-id={{this.id}}>
+				<img src="{{this.img_url}}" alt="image"/>
+			</div>
+			{{/each}}
 		</div>
 	</template>
 
