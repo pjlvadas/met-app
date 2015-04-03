@@ -16,4 +16,5 @@ $(function() {
 	// App.artworkModalView = new App.Views.ArtworkModal({model: });
 	App.artworkModalView = new App.Views.ArtworkModal;
 	App.navigateView = new App.Views.NavigationView;
+	App.artworksSearchView = new App.Views.ArtworksNavView;
 });
