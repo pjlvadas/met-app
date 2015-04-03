@@ -2,9 +2,16 @@ var App = {
 	Models: {},
 	Collections: {},
 	Views: {},
-	Routers: {}
+	router: {}
 };
 
 $(function() {
 	console.log('Loaded, bro.');
+	App.usersCollection = new App.Collections.Users();
+	App.artworkCollection = new App.Collections.Artworks();
+	App.commentsCollection = new App.Collections.Comments();
+	App.usersCollection.fetch();
+	App.artworkCollection.fetch();
+	App.router = new App.router();
+	Backbone.history.start();
 });

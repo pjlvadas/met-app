@@ -3,10 +3,177 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Title</title>
+	<link rel="stylesheet" href="/css/style.css" media="screen" title="no title" charset="utf-8">
 	<script src='bundle.js'></script>
 	<script src='js/app.js'></script>
+
+	<script src='js/models/artwork.js'></script>
+	<script src='js/models/comment.js'></script>
+	<script src='js/models/user.js'></script>
+
+	<script src='js/collections/artworks.js'></script>
+	<script src='js/collections/comments.js'></script>
+	<script src='js/collections/users.js'></script>
+
+
+	<script src='js/views/artworks/artworkPreview.js'></script>
+	<script src='js/views/artworks/artworksListView.js'></script>
+	<script src='js/views/artworks/artworksNavView.js'></script>
+
+	<script src='js/views/comments/commentsListView.js'></script>
+	<script src='js/views/comments/commentView.js'></script>
+	<script src='js/views/comments/editCommentView.js'></script>
+	<script src='js/views/comments/newCommentView.js'></script>
+
+	<script src='js/views/users/editUserView.js'></script>
+	<script src='js/views/users/newUserView.js'></script>
+	<script src='js/views/users/usersListView.js'></script>
+	<script src='js/views/users/userView.js'></script>
+
+	<script src='js/views/gallery/gallery.js'></script>
+	<script src='js/views/gallery/galleryPiece.js'></script>
+
+	<script src='js/views/modalView.js'></script>
+	<script src='js/views/navigationView.js'></script>
+
+	<script src='js/routers/router.js'></script>
+
 </head>
 <body>
-	<h1>Hello world!</h1>
+	<nav class="fixed-nav-bar">
+		<ul>
+			<li><a href="#home">HOME</a></li>
+			<li><a href="#search">SEARCH</a></li>
+			<li><a href="#login">LOGIN</a></li>
+		</ul>
+	</nav>
+	<h1>MET APP</h1>
+	<div id="main"></div>
+	<div id="artwork-modal"></div>
+
+	<template id="navigation-view-template">
+	<div id="navigation-container">
+		<section id'search-section'>
+			<input type="text" name='search'>
+			<select name="search-type">
+				<option value="artist">Artist Search</option>
+				<option value="title">Title Search</option>
+			</select>
+			<button id="search-button">Search</button>
+		</section>
+	</div>
+	</template>
+
+	<template id="artwork-nav-view-template">
+		<div class="search-view">
+			<img src="{{img_url}}" alt="">
+			<p class="artist">{{artist}}</p>
+			<p class="title">{{title}}</p>
+			<p class="start_date">{{startDate}}</p>
+			<p class="end_date">{{endDate}}</p>
+			<p class="culture">{{culture}}</p>
+		</div>
+	</template>
+
+	<template id="user-view-template">
+		<div class='user-view'>
+			<img src='{{avatar}}' alt="">
+			<p class='name'>{{name}}</p>
+			<p class='username'>{{username}}</p>
+			<p class='bio'>{{bio}}</p>
+			<input type="button" name="edit" value="Edit">
+			<div id="my-gallery">
+			</div>
+		</div>
+	</template>
+
+	<template id="gallery-piece">
+		<img src="{{img_url}}" alt="gallery piece" />
+		<p>{{title}}</p>
+		<p>{{artist}}</p>
+		<p>{{date}}</p>
+		<p>{{medium}}</p>
+	</template>
+
+	<template id="new-user-template">
+		<input type="text" class="name">
+		<input type="text" class="username">
+		<input type="text" class="password">
+		<textarea class="bio"></textarea>
+		<input type="text" class="image">
+		<button class="create">CREATE</button>
+	</template>
+
+	<template id="edit-user-template">
+		<input type="text" name="name" value="{{name}}">
+		<input type="text" name="username" value="{{username}}">
+		<input type="text" name="password" value="{{password}}">
+		<input type="text" name="bio" value="{{bio}}">
+		<input name="avatar" value="{{avatar}}">
+		<button class="edit">EDIT</button>
+		<button class="delete">DELETE</button>
+	</template>
+
+	<template id="artwork-nav-view-template">
+		<div class="search-view">
+			<img src="{{image_thumb}}" alt="">
+			<p class="artist">{{artist}}</p>
+			<p class="title">{{title}}</p>
+			<p class="date">{{date}}</p>
+			<p class="medium">{{medium}}</p>
+			<p class="gallery">{{gallery}}</p>
+		</div>
+	</template>
+
+	<template id="artwork-preview-template">
+		<div class="artwork-preview">
+			<img src="{{img_url}}" alt="">
+			<p class="artist">{{artist}}</p>
+			<p class="title">{{title}}</p>
+		</div>
+	</template>
+
+	<template id="artwork-modal-template">
+		<div class="modal-view">
+			<img src="{{img_url}}" alt="">
+			<p class="artist">{{artist}}</p>
+			<p class="title">{{title}}</p>
+			<p class="date">{{date}}</p>
+			<p class="medium">{{medium}}</p>
+			<p class="gallery">{{gallery}}</p>
+				<div id="comments">
+				</div>
+		<button id="close">CLOSE<button>
+		</div>
+	</template>
+
+	<template id="comment-view-template">
+		<div class='user-view'>
+<!-- 			<img src='{{avatar}}' alt=""> -->
+			<p class='title'>{{title}}</p>
+			<p class='content'>{{content}}</p>
+			<p class='date'>{{date}}</p>
+		</div>
+	</template>
+
+	<template id="new-comment-template">
+		<input type="text" class="title">
+		<input type="text" class="content">
+		<input type="text" class="date">
+<!-- 		<input type="text" class="avatar"> -->
+		<button class="create">CREATE</button>
+	</template>
+
+	<template id="edit-comment-template">
+		<input type="text" class="title" value="{{title}}">
+		<input type="text" class="content" value="{{content}}">
+		<input type="text" class="date" value="{{date}}">
+<!-- 		<input class="image" value="{{avatar}}"> -->
+		<button class="edit">EDIT</button>
+		<button class="delete">DELETE</button>
+	</template>
+
+
+
 </body>
 </html>

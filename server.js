@@ -3,6 +3,8 @@ var bodyParser = require('body-parser');
 var logger = require('morgan');
 var models = require(__dirname + '/models');
 var request = require('request');
+var path = require('path');
+var application_root = __dirname;
 
 var app = express();
 
@@ -12,18 +14,28 @@ var Comment = models.comments;
 
 app.use(bodyParser());
 app.use(logger('dev'));
-app.use(express.static(__dirname + '/public'));
+app.use(express.static( path.join( application_root, 'public')));
+app.use(express.static( path.join( application_root, 'browser')));
+
+app.get('/', function(req, res) {
+  res.send('Homepage');
+});
 
 // USERS
+
 app.get('/users', function(req, res){
   User
-    .findAll()
+    .findAll( {include: [
+        {model: Artwork, include: [
+          {model: Comment}]
+          }]
+        })
     .then(function(users){
       res.send(users);
     });
 });
 
-app.get('users/:id', function(req, res){
+app.get('/users/:id', function(req, res) {
   User
     .findOne({ where: {id: req.params.id}, include: Artwork})
     .then(function(user){
@@ -31,7 +43,7 @@ app.get('users/:id', function(req, res){
     });
 });
 
-app.post('/users', function(req, res){
+app.post('/users', function(req, res) {
     User
       .create(req.body)
       .then(function(newUser){
@@ -39,7 +51,7 @@ app.post('/users', function(req, res){
       });
 });
 
-app.put('users/:id', function(req, res){
+app.put('/users/:id', function(req, res){
   User
     .findOne(req.params.id)
     .then(function(user){
@@ -51,9 +63,9 @@ app.put('users/:id', function(req, res){
     });
 });
 
-app.delete('users/:id', function(req, res){
+app.delete('/users/:id', function(req, res){
   User
-    .findOne(req.parmas.id)
+    .findOne(req.params.id)
     .then(function(user){
       user
         .destroy()
@@ -64,6 +76,7 @@ app.delete('users/:id', function(req, res){
 });
 
 // ARTWORKS
+
 app.get('/artworks', function(req, res){
   Artwork
     .findAll({ include: Comment })
@@ -95,7 +108,16 @@ app.get('/users/:id/artworks', function(req, res){
     });
 });
 
+app.post('/artworks', function(req, res) {
+  Artwork
+    .create(req.body)
+    .then(function(newArtwork) {
+      res.send(newArtwork);
+    });
+});
+
 // COMMENTS
+
 app.get('/comments', function(req, res){
   Comment
     .findAll()
@@ -119,21 +141,6 @@ app.get('/users/:id/comments', function(req, res){
       });
 });
 
-app.get('/artworks/:id/comments', function(req, res){
-  Artwork
-    .findOne(req.params.id)
-      .then(function(artwork){
-        Comment
-          .findAll()
-          .then(function(comments){
-            artwork.getComments()
-            .then(function(artworkComments){
-              res.send(artworkComments);
-            });
-          });
-      });
-});
-
 app.post('/users/:id/comments', function(req, res){
   User
     .findOne(req.params.id)
@@ -142,6 +149,19 @@ app.post('/users/:id/comments', function(req, res){
         .create(req.body)
         .then(function(newComment){
           user.addComment(newComment)
+          res.send(newComment);
+        });
+    });
+});
+
+app.post('/artworks/:id/comments', function(req, res){
+  Artwork
+    .findOne(req.params.id)
+    .then(function(artwork){
+      Comment
+        .create(req.body)
+        .then(function(newComment){
+          artwork.addComment(newComment)
           res.send(newComment);
         });
     });
@@ -174,14 +194,14 @@ app.delete('/comments/:id', function(req, res){
 // JOINT TABLE ROUTES
 
 app.put('/users/:id/add_artwork', function(req,res) {
-  var userId = req.params.id;
+  var user_id = req.params.id;
   var artworkId = req.body.artwork_id;
 
   User
-    .findOne(userId)
+    .findOne(user_id)
     .then(function(user) {
       Artwork
-        .findOne(artwork_id)
+        .findOne(artworkId)
         .then(function(artwork) {
           user.addArtwork(artwork);
           res.send('Success');
@@ -205,6 +225,25 @@ app.put('/users/:id/remove_artwork', function(req, res) {
     })
 });
 
-app.listen(3000, function() {
-  console.log('Server running on port 3000 :-)');
+//NY Times request routes
+
+app.get('/ny_times_events', function(req, res) {
+
+  var queryParams = req.query;
+  queryParams['api-key'] = '2425a645db140bd11173a0e217fff0d4:3:71761161'
+  console.log(queryParams);
+  request({
+    uri: 'http://api.nytimes.com/svc/events/v2/listings.json',
+    method: 'GET',
+    json: true,
+    qs: queryParams
+  },
+  function(error, response, body) {
+    var results = body;
+    console.log(results);
+    res.send(results)
+  });
 });
+
+
+module.exports = app;
