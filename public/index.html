@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Title</title>
+	<title>Met App</title>
 	<link rel="stylesheet" href="/css/style.css" media="screen" title="no title" charset="utf-8">
 	<script src='bundle.js'></script>
 	<script src='js/app.js'></script>
@@ -19,6 +19,7 @@
 	<script src='js/views/artworks/artworkPreview.js'></script>
 	<script src='js/views/artworks/artworksListView.js'></script>
 	<script src='js/views/artworks/artworksNavView.js'></script>
+	<script src='js/views/artworks/artSearchModal.js'></script>
 
 	<script src='js/views/comments/commentsListView.js'></script>
 	<script src='js/views/comments/commentView.js'></script>
@@ -32,10 +33,10 @@
 
 	<script src='js/views/gallery/gallery.js'></script>
 	<script src='js/views/gallery/galleryPiece.js'></script>
+	<!-- // <script src='js/views/galleryModal.js'></script> -->
 
-	<script src='js/views/modalView.js'></script>
 	<script src='js/views/navigationView.js'></script>
-
+	<script src='js/views/userLogin.js'></script>
 	<script src='js/routers/router.js'></script>
 
 </head>
@@ -50,6 +51,11 @@
 	<h1>MET APP</h1>
 	<div id="main"></div>
 	<div id="artwork-modal"></div>
+
+	<template id="login-template">
+		<input type="text" name="username" placeholder="Username">
+		<button name="create-profile">Create Profile</button>
+	</template>
 
 	<template id="navigation-view-template">
 	<div id="navigation-container">
@@ -66,7 +72,7 @@
 
 	<template id="artwork-nav-view-template">
 		<div class="search-view">
-			<img src="{{img_url}}" alt="">
+			<img src="{{image_thumb}}" alt="">
 			<p class="artist">{{artist}}</p>
 			<p class="title">{{title}}</p>
 			<p class="start_date">{{startDate}}</p>
@@ -81,7 +87,7 @@
 			<p class='name'>{{name}}</p>
 			<p class='username'>{{username}}</p>
 			<p class='bio'>{{bio}}</p>
-			<input type="button" name="edit" value="Edit">
+			<button name="edit">Edit Profile</button>
 			<div id="my-gallery">
 			</div>
 		</div>
@@ -96,12 +102,12 @@
 	</template>
 
 	<template id="new-user-template">
-		<input type="text" class="name">
-		<input type="text" class="username">
-		<input type="text" class="password">
-		<textarea class="bio"></textarea>
-		<input type="text" class="image">
-		<button class="create">CREATE</button>
+		<input type="text" name="name" placeholder='Name'>
+		<input type="text" name="username" placeholder='Username'>
+		<input type="text" name="password" placeholder='Password'>
+		<textarea name="bio"></textarea>
+		<input type="text" name="image" placeholder='Avatar'>
+		<button name="create">CREATE</button>
 	</template>
 
 	<template id="edit-user-template">
@@ -136,14 +142,15 @@
 	<template id="artwork-modal-template">
 		<div class="modal-view">
 			<img src="{{img_url}}" alt="">
-			<p class="artist">{{artist}}</p>
-			<p class="title">{{title}}</p>
-			<p class="date">{{date}}</p>
-			<p class="medium">{{medium}}</p>
-			<p class="gallery">{{gallery}}</p>
-				<div id="comments">
-				</div>
-		<button id="close">CLOSE<button>
+			<p class="artist">Artist: {{artist}}</p>
+			<p class="title">Title: {{title}}</p>
+			<p class="date">Date: {{date}}</p>
+			<p class="medium">Medium: {{medium}}</p>
+			{{#if gallery}}
+			<p class="gallery">Gallery: {{gallery}}</p>
+			{{/if}}
+			<button name="add">ADD TO MY GALLERY</button>
+			<button name="close">CLOSE</button>
 		</div>
 	</template>
 

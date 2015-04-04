@@ -1,9 +1,5 @@
 App.Views.NewUser = Backbone.View.extend({
 
-	tagName: "section",
-
-	className: "new-user",
-
 	initialize: function() {
 		this.template = Handlebars.compile($('#new-user-template').html());
 		this.render();
@@ -15,20 +11,17 @@ App.Views.NewUser = Backbone.View.extend({
 	},
 
 	events: {
-		'click .create': 'createUser'
+		'click button': 'createUser'
 	},
 
 	createUser: function() {
-		if (this.$('.name').val()) {
 			var data = {
-				name: this.$('.name').val(),
-				username: this.$('.username').val(),
-				password: this.$('.password').val(),
-				bio: this.$('.bio').val(),
-				image: this.$('.image').val()
+				name: $('input[name="name"]').val(),
+				username: $('input[name="username"]').val(),
+				password: $('input[name="password"]').val(),
+				bio: $('input[name="bio"]').val(),
+				avatar: $('input[name="image"]').val()
 			}
-			App.users.create(data);
+			App.usersCollection.create(data);
 		}
-	}
-
 });
