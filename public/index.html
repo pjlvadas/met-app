@@ -32,10 +32,10 @@
 
 	<script src='js/views/gallery/gallery.js'></script>
 	<script src='js/views/gallery/galleryPiece.js'></script>
+	<script src='js/views/galleryModal.js'></script>
 
-	<script src='js/views/modalView.js'></script>
 	<script src='js/views/navigationView.js'></script>
-
+	<script src='js/views/userLogin.js'></script>
 	<script src='js/routers/router.js'></script>
 
 </head>
@@ -50,6 +50,10 @@
 	<h1>MET APP</h1>
 	<div id="main"></div>
 	<div id="artwork-modal"></div>
+
+	<template id="login-template">
+		<input type="text" name="username" placeholder="Username">
+	</template>
 
 	<template id="navigation-view-template">
 	<div id="navigation-container">
@@ -66,7 +70,7 @@
 
 	<template id="artwork-nav-view-template">
 		<div class="search-view">
-			<img src="{{img_url}}" alt="">
+			<img src="{{image_thumb}}" alt="">
 			<p class="artist">{{artist}}</p>
 			<p class="title">{{title}}</p>
 			<p class="start_date">{{startDate}}</p>
@@ -136,11 +140,11 @@
 	<template id="artwork-modal-template">
 		<div class="modal-view">
 			<img src="{{img_url}}" alt="">
-			<p class="artist">{{artist}}</p>
-			<p class="title">{{title}}</p>
-			<p class="date">{{date}}</p>
-			<p class="medium">{{medium}}</p>
-			<p class="gallery">{{gallery}}</p>
+			<p class="artist">Artist: {{artist}}</p>
+			<p class="title">Title: {{title}}</p>
+			<p class="date">Date: {{date}}</p>
+			<p class="medium">Medium: {{medium}}</p>
+			<p class="gallery">Gallery: {{gallery}}</p>
 				<div id="comments">
 				</div>
 		<button id="close">CLOSE<button>

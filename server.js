@@ -75,6 +75,17 @@ app.delete('/users/:id', function(req, res){
     });
 });
 
+//USER LOGIN
+
+// app.get('/users/:username', function(req, res) {
+//   var username = req.params.username;
+//   User
+//     .find({where: {username: username}})
+//     .then(function(user) {
+//       res.send(user);
+//     });
+// })
+
 // ARTWORKS
 
 app.get('/artworks', function(req, res){
