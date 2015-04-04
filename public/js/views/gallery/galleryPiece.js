@@ -18,7 +18,10 @@ App.Views.GalleryPiece = Backbone.View.extend({
   },
 
   modal: function() {
-    new App.Views.ArtworkModal({model: this.model})
+    var id = this.model.id;
+    App.router.preModalRoute = Backbone.history.getFragment();
+    App.router.navigate('my_gallery/' + id, {trigger:true});
+
   }
 
 });

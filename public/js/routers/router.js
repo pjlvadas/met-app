@@ -4,11 +4,68 @@ App.router = Backbone.Router.extend({
   },
 
   routes: {
-    '/user/:id': 'user'
+    '': 'homepage',
+    'search': 'search',
+    'search/:query': 'searchQuery',
+    'login': 'login',
+    'users/:id': 'user',
+    'my_gallery/:id': 'galleryModal',
+    'artwork/:id': 'artwork'
   },
 
   user: function(id) {
-    var user = App.usersCollection.get(id);
-    new App.Views.User({model: user});
-  }
+    console.log('user router')
+    App.usersCollection.fetch()
+      .done(function() {
+        var user = App.usersCollection.get(id);
+        new App.Views.User({model: user});
+      });
+    //new App.Views.User({model: user});
+  },
+
+  search: function() {
+    console.log('search route');
+    new App.Views.NavigationView();
+  },
+
+  searchQuery: function(query) {
+    console.log('search query route');
+    $.ajax({
+      url: 'http://scrapi.org/search/' + query,
+      method: 'GET'
+    }).done(function(data){
+      for (var i = 0; i < 2; i++){
+        var newModel = new App.Models.Artwork(data.collection.items[i]);
+        new App.Views.ArtworksNavView({ model: newModel });
+      }
+    });
+  },
+
+  login: function() {
+    console.log('login route');
+    new App.Views.UserLogin();
+  },
+
+  galleryModal: function(id) {
+    console.log('my_gallery route');
+    App.artworkCollection
+      .fetch()
+      .done(function() {
+        var galleryPiece = App.artworkCollection.get(id);
+        new App.Views.ArtworkModal({model: galleryPiece})
+      });
+    },
+
+    artwork: function(id) {
+      console.log('artwork_route');
+      $.ajax({
+        url: 'http://scrapi.org/object/' + id,
+        method: 'GET'
+      })
+        .done(function(data) {
+          console.log('finished ajax call')
+          var model = new App.Models.Artwork(data);
+          new App.Views.ArtworkModal({model: model});
+      });
+    }
 });
