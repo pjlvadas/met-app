@@ -22,7 +22,6 @@ App.Views.ArtworkModal = Backbone.View.extend({
 		artData.title = this.model.get('title');
 		var model = new App.Models.Artwork(artData);
 		this.model = model;
-		console.log(this.model);
 		var renderedTemplate = this.template(this.model.toJSON());
 		this.$el.html(renderedTemplate);
 		$('#artwork-modal').append(this.$el);
@@ -41,6 +40,39 @@ App.Views.ArtworkModal = Backbone.View.extend({
 
 	addGallery: function() {
 		console.log('add gallery event triggered');
-		
+		var data = this.model.toJSON();
+		var userId = sessionStorage.getItem('currentUser');
+
+		var addArtwork = function(artwork) {
+			var artworkId = artwork.id;
+			$.ajax({
+				url: '/users/' + userId + '/add_artwork',
+				method: 'PUT',
+				data: {artwork_id: artworkId}
+			});
+		};
+
+		//Check if artwork is already in the collection. If not,
+		//post to the database and add artwork. If so, just add artwork.
+
+		var model = App.artworkCollection.findWhere(data);
+
+		if(!model) {
+			$.ajax({
+				url: '/artworks',
+				method: 'POST',
+				data: data})
+				.done(addArtwork)
+					.done(function() {
+						console.log('art added successfully');
+					});
+			}
+		else {
+			console.log('artwork in collection, adding tag')
+			addArtwork(model);
+		}
+
+		// $.ajax({url: '/users/' + userId + 'add_artwork'})
+
 	}
 });
