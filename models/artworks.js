@@ -5,9 +5,9 @@ module.exports = function(sequelize, DataTypes) {
     title: DataTypes.STRING,
     medium: DataTypes.STRING,
     img_url: DataTypes.TEXT,
-    start_date: DataTypes.INTEGER,
-    end_date: DataTypes.INTEGER,
-    culture: DataTypes.STRING
+    gallery_url: DataTypes.STRING,
+    date: DataTypes.STRING,
+
   }, {
     timestamps: false,
 

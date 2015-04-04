@@ -12,7 +12,8 @@ App.Views.UserLogin = Backbone.View.extend({
   },
 
   events: {
-    'keypress input[name="username"]': 'login'
+    'keypress input[name="username"]': 'login',
+    'click button': 'createProfile'
   },
 
   login: function(e) {
@@ -23,5 +24,10 @@ App.Views.UserLogin = Backbone.View.extend({
       sessionStorage.setItem("currentUser", id);
       App.router.navigate('users/' + id, {trigger: true});
     }
+  },
+
+  createProfile: function() {
+    console.log('createAccount event triggered');
+    App.router.navigate('create_profile', {trigger: true});
   }
 });
