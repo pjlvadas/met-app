@@ -18,10 +18,11 @@ App.Views.User = Backbone.View.extend({
 	},
 
 	events: {
-		'click input[name="edit"]': "showEditView",
+		'click button[name="edit"]': "showEditView",
 	},
 
 	showEditView: function() {
-		new App.Views.EditUser({model: this.model});
+		console.log('edit view triggerd');
+		App.router.navigate('edit_profile/' + this.model.id, {trigger: true});
 	}
 });
