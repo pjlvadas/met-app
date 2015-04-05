@@ -11,6 +11,7 @@ App.router = Backbone.Router.extend({
     'users/:id': 'user',
     'my_gallery/:id': 'galleryModal',
     'artwork/:id': 'artwork',
+    'my_gallery/:id/add_comment': 'galleryComment',
     'create_profile': 'createProfile',
     'edit_profile/:id': 'editProfile'
   },
@@ -54,9 +55,20 @@ App.router = Backbone.Router.extend({
       .fetch()
       .done(function() {
         var galleryPiece = App.artworkCollection.get(id);
-        new App.Views.ArtworkModal({model: galleryPiece})
+        new App.Views.GalleryModal({model: galleryPiece})
       });
-    },
+  },
+
+  galleryComment: function(id) {
+    console.log('gallery comment route');
+    App.artworkCollection
+      .fetch()
+      .done(function() {
+        var galleryPiece = App.artworkCollection.get(id);
+        new App.Views.GalleryModal({model: galleryPiece});
+        new App.Views.NewComment({model: galleryPiece});
+      })
+  },
 
   artwork: function(id) {
     console.log('artwork_route');

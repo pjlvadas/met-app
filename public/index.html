@@ -33,7 +33,7 @@
 
 	<script src='js/views/gallery/gallery.js'></script>
 	<script src='js/views/gallery/galleryPiece.js'></script>
-	<!-- // <script src='js/views/galleryModal.js'></script> -->
+	<script src='js/views/gallery/galleryModal.js'></script>
 
 	<script src='js/views/navigationView.js'></script>
 	<script src='js/views/userLogin.js'></script>
@@ -154,6 +154,25 @@
 		</div>
 	</template>
 
+	<template id="gallery-modal">
+		<div class="gallery-modal-view">
+			<img src="{{img_url}}" alt="">
+			<p class="artist">Artist: {{artist}}</p>
+			<p class="title">Title: {{title}}</p>
+			<p class="date">Date: {{date}}</p>
+			<p class="medium">Medium: {{medium}}</p>
+			{{#if gallery}}
+			<p class="gallery">Gallery: {{gallery}}</p>
+			{{/if}}
+			<button name="comment">COMMENT</button>
+			<button name="close">CLOSE</button>
+			<div class="comment-container">
+			</div>
+			<div id="new-comment-container">
+			</div>
+		</div>
+	</template>
+
 	<template id="comment-view-template">
 		<div class='user-view'>
 <!-- 			<img src='{{avatar}}' alt=""> -->
@@ -164,9 +183,8 @@
 	</template>
 
 	<template id="new-comment-template">
-		<input type="text" class="title">
-		<input type="text" class="content">
-		<input type="text" class="date">
+		<input type="text" name="title" placeholder="Title">
+		<input type="text" name="content" placeholder="Content">
 <!-- 		<input type="text" class="avatar"> -->
 		<button class="create">CREATE</button>
 	</template>
