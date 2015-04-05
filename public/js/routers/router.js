@@ -27,9 +27,19 @@ App.router = Backbone.Router.extend({
     //new App.Views.User({model: user});
   },
 
+  homepage: function() {
+    if (sessionStorage.getItem('currentUser')) {
+      $('#main').empty();
+      $('#search').hide();
+      var userId = sessionStorage.getItem('currentUser');
+      App.router.navigate('users/' + userId, {trigger:true});
+    }
+  },
+
   search: function() {
     console.log('search route');
-    $('#main').empty()
+    $('#main').empty();
+    $('#search').show();
     new App.Views.NavigationView();
   },
 
@@ -82,6 +92,7 @@ App.router = Backbone.Router.extend({
   artwork: function(id) {
     console.log('artwork_route');
     $('#artwork-modal').empty();
+    $('#artwork-modal').show();
     $.ajax({
       url: 'http://scrapi.org/object/' + id,
       method: 'GET'
