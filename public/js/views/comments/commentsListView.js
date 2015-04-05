@@ -2,7 +2,7 @@ App.Views.CommentsListView = Backbone.View.extend({
 
 	initialize: function() {
 		console.log('new COMMENTS LIST VIEW created');
-		this.listenTo(this.collection, 'reset', this.render);
+		// this.listenTo(this.collection, 'reset', this.render);
 		this.listenTo(this.collection, 'add', this.renderComment);
 		this.render();
 	},

@@ -50,35 +50,21 @@
 	</nav>
 	<h1>MET APP</h1>
 	<div id="main"></div>
+	<div id="search">
+		<input type="text" name='search'>
+		<select name="search-type">
+			<option value="artist">Artist Search</option>
+			<option value="title">Title Search</option>
+		</select>
+		<button id="search-button">Search</button>
+		<section id ="search-results">
+		</section>
+	</div>
 	<div id="artwork-modal"></div>
 
 	<template id="login-template">
 		<input type="text" name="username" placeholder="Username">
 		<button name="create-profile">Create Profile</button>
-	</template>
-
-	<template id="navigation-view-template">
-	<div id="navigation-container">
-		<section id'search-section'>
-			<input type="text" name='search'>
-			<select name="search-type">
-				<option value="artist">Artist Search</option>
-				<option value="title">Title Search</option>
-			</select>
-			<button id="search-button">Search</button>
-		</section>
-	</div>
-	</template>
-
-	<template id="artwork-nav-view-template">
-		<div class="search-view">
-			<img src="{{image_thumb}}" alt="">
-			<p class="artist">{{artist}}</p>
-			<p class="title">{{title}}</p>
-			<p class="start_date">{{startDate}}</p>
-			<p class="end_date">{{endDate}}</p>
-			<p class="culture">{{culture}}</p>
-		</div>
 	</template>
 
 	<template id="user-view-template">
@@ -179,6 +165,7 @@
 			<p class='title'>{{title}}</p>
 			<p class='content'>{{content}}</p>
 			<p class='date'>{{date}}</p>
+			<p class='author'>{{author}}</p>
 		</div>
 	</template>
 

@@ -18,11 +18,14 @@ App.Views.NewComment = Backbone.View.extend({
 		console.log('create comment event triggered');
 		var date = new Date();
 		var modelId = this.model.id
+		var userId = parseInt(sessionStorage.getItem('currentUser'));
+		var author = App.usersCollection.get(userId).get('username');
 		dateString = (date.getMonth()+1) + '/' + date.getDate() + '/' + date.getFullYear();
 		var data = {
 				title: $('input[name="title"]').val(),
 				content: $('input[name="content"]').val(),
-				date: dateString
+				date: dateString,
+				author: author
 				}
 		$.ajax({
 			url: '/artworks/' + modelId + '/comments',
