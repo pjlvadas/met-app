@@ -9,7 +9,7 @@ App.Views.Comment = Backbone.View.extend({
 	renderView: function() {
 		var renderedTemplate = this.template(this.model.toJSON());
 		this.$el.html(renderedTemplate);
-		$('#comments').append(this.$el);
+		$('.comment-container').append(this.$el);
 	},
 
 	events: {
