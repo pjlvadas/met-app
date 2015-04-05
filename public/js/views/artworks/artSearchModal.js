@@ -12,14 +12,21 @@ App.Views.ArtworkModal = Backbone.View.extend({
 		//Constructs new Backbone model from data available in API response
 		//Necessary to store the artwork in the database.
 		var artData = {};
+
 		artData.artist = this.model.get('primaryArtistNameOnly');
+
 		artData.img_url = this.model.get('currentImage').imageUrl;
+
 		artData.date = this.model.get('dateText').toString();
+
 		re.test(this.model.get('galleryLink')) ?
 			artData.gallery_url = this.model.get('galleryLink')
 			: artData.gallery_url = metURL + this.model.get('url');
+
 		artData.medium = this.model.get('medium');
+
 		artData.title = this.model.get('title');
+
 		var model = new App.Models.Artwork(artData);
 		this.model = model;
 		var renderedTemplate = this.template(this.model.toJSON());

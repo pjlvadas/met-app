@@ -18,6 +18,7 @@ App.router = Backbone.Router.extend({
 
   user: function(id) {
     console.log('user router')
+    $('#main').empty();
     App.usersCollection.fetch()
       .done(function() {
         var user = App.usersCollection.get(id);
@@ -28,11 +29,14 @@ App.router = Backbone.Router.extend({
 
   search: function() {
     console.log('search route');
+    $('#main').empty()
     new App.Views.NavigationView();
   },
 
   searchQuery: function(query) {
     console.log('search query route');
+    $('#main').empty();
+    $('#search-results').empty();
     $.ajax({
       url: 'http://scrapi.org/search/' + query,
       method: 'GET'
@@ -46,11 +50,15 @@ App.router = Backbone.Router.extend({
 
   login: function() {
     console.log('login route');
+    $('#main').empty();
+    $('#search').hide();
     new App.Views.UserLogin();
   },
 
   galleryModal: function(id) {
     console.log('my_gallery route');
+    $('#artwork-modal').empty();
+    $('#artwork-modal').show();
     App.artworkCollection
       .fetch()
       .done(function() {
@@ -61,6 +69,7 @@ App.router = Backbone.Router.extend({
 
   galleryComment: function(id) {
     console.log('gallery comment route');
+    $('#artwork-modal').empty();
     App.artworkCollection
       .fetch()
       .done(function() {
@@ -72,6 +81,7 @@ App.router = Backbone.Router.extend({
 
   artwork: function(id) {
     console.log('artwork_route');
+    $('#artwork-modal').empty();
     $.ajax({
       url: 'http://scrapi.org/object/' + id,
       method: 'GET'
@@ -84,11 +94,13 @@ App.router = Backbone.Router.extend({
 
     createProfile: function() {
       console.log('create profile route');
+      $('#main').empty();
       new App.Views.NewUser();
     },
 
     editProfile: function(id) {
       console.log('edit profile route');
+      $('#main').empty();
       App.usersCollection
         .fetch()
         .done(function() {

@@ -1,9 +1,5 @@
 App.Views.Artwork = Backbone.View.extend({
 
-	tagName: 'aside',
-
-	className: 'artwork',
-
 	initialize: function(){
 		console.log('new ARTWORK PREVIEW VIEW created');
 		this.artworkPreviewTemplate = Handlebars.compile($('#artwork-preview-template').html());
@@ -12,7 +8,7 @@ App.Views.Artwork = Backbone.View.extend({
 
 	renderPreview: function(){
 		this.$el.html(this.artworkPreviewTemplate(this.model.toJSON()));
-		this.$el.appendTo($('#main'));
+		this.$el.appendTo($('#search-results'));
 	},
 
 	events: {
