@@ -1,5 +1,3 @@
-#special config for sqlite
-config/
 
 #sqlite database
 db/
