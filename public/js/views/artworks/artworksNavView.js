@@ -15,10 +15,11 @@ App.Views.ArtworksNavView = Backbone.View.extend({
 	},
 
 	events: {
-		'click .search-view': 'showModal'
+		'click img': 'showModal'
 	},
 
 	showModal: function(){
+		console.log('click event triggered');
 		var id = this.model.id;
 		App.router.preModalRoute = Backbone.history.getFragment();
 		App.router.navigate('artwork/' + id, { trigger:true });
