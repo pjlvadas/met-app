@@ -57,8 +57,10 @@
 		</ul>
 	</nav>
 
-	<h1>MET APP</h1>
-	
+	<div id="logo">
+		<h1>MET APP</h1>
+	</div>
+
 	<div id="main"></div>
 	<div id="artwork-modal"></div>
 
@@ -77,17 +79,6 @@
 			<button type="submit" id="search-button">Search</button>
 		</form>
 	</div>
-	</template>
-
-	<template id="artwork-nav-view-template">
-		<div class="search-view">
-			<img src="{{image_thumb}}" alt="">
-			<p class="artist">{{artist}}</p>
-			<p class="title">{{title}}</p>
-			<p class="start_date">{{startDate}}</p>
-			<p class="end_date">{{endDate}}</p>
-			<p class="culture">{{culture}}</p>
-		</div>
 	</template>
 
 	<template id="user-view-template">
@@ -155,10 +146,11 @@
 			<p class="title">Title: {{title}}</p>
 			<p class="date">Date: {{date}}</p>
 			<p class="medium">Medium: {{medium}}</p>
+			{{#if gallery}}
 			<p class="gallery">Gallery: {{gallery}}</p>
-				<div id="comments">
-				</div>
-		<button id="close">CLOSE<button>
+			{{/if}}
+			<button name="add">ADD TO MY GALLERY</button>
+			<button name="close">CLOSE</button>
 		</div>
 	</template>
 
