@@ -1,21 +1,21 @@
 App.Views.ArtworksListView = Backbone.View.extend({
 
-	tagName: 'section',
-
-	className: 'artworks',
+	el: "#main",
 
 	initialize: function() {
 		console.log('new ARTWORK LIST VIEW');
+		// this.listenTo(this.collection, 'reset', this.render);
+		// this.listenTo(this.collection, 'add', this.renderArtwork);
 		this.render();
-		this.listenTo(this.collection, 'reset', this.render);
-		this.listenTo(this.collection, 'add', this.renderArtwork);
 	},
 
 	render: function() {
+		this.$el.empty();
 		this.collection.each(this.renderArtwork, this);
 	},
 
 	renderArtwork: function(artworkModel) {
-		$('#main').prepend(new App.Views.Artwork({ model: artworkModel}).$el);
+		new App.Views.Artwork({ model: artworkModel})
 	}
+
 });

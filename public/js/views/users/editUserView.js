@@ -1,5 +1,7 @@
 App.Views.EditUser = Backbone.View.extend({
 
+	className: 'edit-user',
+
 	initialize: function() {
 		this.template = Handlebars.compile($('#edit-user-template').html());
 		this.render();

@@ -16,7 +16,10 @@ module.exports = {
         type: DataTypes.TEXT
       },
       date: {
-        type: DataTypes.DATEONLY
+        type: DataTypes.STRING
+      },
+      author: {
+        type: DataTypes.STRING
       },
       user_id: {
         type: DataTypes.INTEGER

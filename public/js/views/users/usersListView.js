@@ -1,9 +1,5 @@
 App.Views.UsersListView = Backbone.View.extend({
 
-	// tagName: 'section',
-	//
-	// className: 'users',
-
 	initialize: function() {
 		console.log('new USERS LIST VIEW created');
 		this.render();

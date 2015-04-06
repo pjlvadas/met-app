@@ -1,9 +1,5 @@
 App.Views.ArtworksNavView = Backbone.View.extend({
 
-	tagName: 'aside',
-
-	className: 'artwork',
-
 	initialize: function(){
 		console.log('ARTWORKS NAV VIEW CREATED');
 		this.artworkNavTemplate = Handlebars.compile($('#artwork-nav-view-template').html());
@@ -13,7 +9,7 @@ App.Views.ArtworksNavView = Backbone.View.extend({
 	renderNav: function(){
 		// var renderedTemplate = this.artworkNavTemplate(this.model.toJSON());
 		this.$el.html(this.artworkNavTemplate(this.model.toJSON()));
-		this.$el.appendTo($('#main'));
+		this.$el.appendTo($('#search-results'));
 	},
 
 	events: {
@@ -21,6 +17,10 @@ App.Views.ArtworksNavView = Backbone.View.extend({
 	},
 
 	showModal: function(){
+		App.artworkModalView.model = this.model;
+		App.artworkModalView.render();
+		App.artworkModalView.showModal();
+
 		var id = this.model.id;
 		App.router.preModalRoute = Backbone.history.getFragment();
 		App.router.navigate('artwork/' + id, { trigger:true });

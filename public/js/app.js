@@ -13,5 +13,11 @@ $(function() {
 	App.usersCollection.fetch();
 	App.artworkCollection.fetch();
 	App.router = new App.router();
+	$('#bar-search-button').on('click', function(){
+		console.log('bar search button CLICKED');
+		var newSearch = $('.nav-search').val();
+		var query = $('#bar-search').val();
+		App.router.navigate('search/' + query, {trigger: true});
+	});
 	Backbone.history.start();
 });
