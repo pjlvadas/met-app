@@ -23,7 +23,7 @@ App.Views.NewComment = Backbone.View.extend({
 		dateString = (date.getMonth()+1) + '/' + date.getDate() + '/' + date.getFullYear();
 		var data = {
 				title: $('input[name="title"]').val(),
-				content: $('input[name="content"]').val(),
+				content: $('textarea[name="content"]').val(),
 				date: dateString,
 				author: author
 				}
