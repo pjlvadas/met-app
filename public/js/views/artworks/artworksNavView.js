@@ -1,5 +1,7 @@
 App.Views.ArtworksNavView = Backbone.View.extend({
 
+	className: 'search-view',
+
 	initialize: function(){
 		console.log('ARTWORKS NAV VIEW CREATED');
 		this.artworkNavTemplate = Handlebars.compile($('#artwork-nav-view-template').html());
