@@ -33,7 +33,7 @@ body {
 
 .fixed-nav-bar li {
 	display: inline-block;
-	width: 33%;
+	width: 20%;
 	margin: 0;
 	padding: 0;
 }
@@ -50,7 +50,7 @@ body {
 
 .fixed-nav-bar li.nav-search {
 	display: inline-block;
-	width: 33%;
+	width: 25%;
 	margin: 0;
 	padding: 0;
 /*	border-radius: 10px;*/
@@ -205,3 +205,29 @@ body {
 .user-login button {
 	display: block;
 }
+
+.search-view {
+	border: 1px solid;
+	border-color: red;
+	padding: 4px 0px 4px 4px;
+	margin: 2px 2px;
+}
+
+.search-view img {
+	float: left;
+	border: 2px solid;
+	border-color: black;
+}
+
+.search-view p {
+}
+
+.search-view p.artist {}
+
+.search-view p.title {}
+
+.search-view p.date {}
+
+.search-view p.medium {}
+
+.search-view p.gallery {}

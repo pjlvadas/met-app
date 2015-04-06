@@ -50,15 +50,15 @@
 	<nav class="fixed-nav-bar">
 		<ul class="nav">
 			<li><a href="#home">HOME</a></li>
+			<li><a href="#events">EVENTS</a></li>
 			<li><a href="#login">LOGIN</a></li>
 			<li class="nav-search" id="nav-search-section">
-				<input type="bar-search" id="bar-search" name="bar-search" placeholder="Search for..."><button id="bar-search-button">Search</button>
+				<input type="search" id="bar-search" name="bar-search" placeholder="Search for..."><button id="bar-search-button">Search</button>
 				<select name="search-type">
 					<option value="artist">Artist</option>
 					<option value="title">Title</option>
 				</select>
 			</li>
-			<li><a href="#events">EVENTS</a></li>
 		</ul>
 	</nav>
 
@@ -150,7 +150,7 @@
 			<p class="title">{{title}}</p>
 			<p class="date">{{date}}</p>
 			<p class="medium">{{medium}}</p>
-			<p class="gallery">{{gallery}}</p>
+			<p class="gallery">In Gallery #{{gallery}}</p>
 		</div>
 	</template>
 
