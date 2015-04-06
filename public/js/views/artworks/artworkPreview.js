@@ -1,9 +1,12 @@
 App.Views.Artwork = Backbone.View.extend({
 
+	className: 'artwork-result',
+
 	initialize: function(){
 		console.log('new ARTWORK PREVIEW VIEW created');
 		this.artworkPreviewTemplate = Handlebars.compile($('#artwork-preview-template').html());
-		//this.renderPreview();
+		this.listenTo(this.model, 'change', this.renderPreview)
+		this.renderPreview();
 	},
 
 	renderPreview: function(){

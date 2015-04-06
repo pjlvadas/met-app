@@ -17,6 +17,10 @@ App.Views.ArtworksNavView = Backbone.View.extend({
 	},
 
 	showModal: function(){
+		App.artworkModalView.model = this.model;
+		App.artworkModalView.render();
+		App.artworkModalView.showModal();
+
 		var id = this.model.id;
 		App.router.preModalRoute = Backbone.history.getFragment();
 		App.router.navigate('artwork/' + id, { trigger:true });
