@@ -6,8 +6,9 @@ App.router = Backbone.Router.extend({
   routes: {
     'home': 'homepage',
     'search': 'search',
-    'search/:query': 'searchQuery',
+    'events': 'events',
     'login': 'login',
+    'search/:query': 'searchQuery',
     'users/:id': 'user',
     'my_gallery/:id': 'galleryModal',
     'artwork/:id': 'artwork',
@@ -43,6 +44,21 @@ App.router = Backbone.Router.extend({
     $('#search-results').empty();
     $('#search').show();
     new App.Views.NavigationView();
+  },
+
+  events: function() {
+    console.log('events route');
+    $('#nytimes-events').empty();
+    $.ajax({
+      url: '/ny_times_events?query="The Metropolitan Museum of Art"',
+      method: 'GET'
+    }).done(function(data) {
+      data.results.forEach(function(event) {
+        event.web_description = $(event.web_description).text();
+        var model = new App.Models.NyTimes(event);
+        new App.Views.NyTimes({model: model});
+      });
+    });
   },
 
   searchQuery: function(query) {
