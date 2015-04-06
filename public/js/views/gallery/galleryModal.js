@@ -1,4 +1,6 @@
 App.Views.GalleryModal = Backbone.View.extend({
+
+
   initialize: function() {
     console.log('gallery modal');
     this.template = Handlebars.compile($('#gallery-modal').html());
