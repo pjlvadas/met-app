@@ -69,7 +69,7 @@
 	<div id="main"></div>
 
 	<div id="nytimes-events">
- 		<h1>Events at the Met</h1> 
+ 		<h1>Events at the Met</h1>
 	</div>
 
 	<div id="artwork-modal"></div>
@@ -106,8 +106,8 @@
 	<template id="user-view-template">
 			<img src='{{avatar}}' alt="">
 			<p class='name'>{{name}}</p>
-			<p class='username'>{{username}}</p>
-			<p class='bio'>{{bio}}</p>
+			<p class='username'>Username: {{username}}</p>
+			<p class='bio'>Bio: {{bio}}</p>
 			<button name="edit">Edit Profile</button>
 			<div id="my-gallery">
 				<h1>{{name}}'s Gallery</h1>
@@ -124,12 +124,15 @@
 	</template>
 
 	<template id="new-user-template">
-		<input type="text" name="name" placeholder='Name'>
-		<input type="text" name="username" placeholder='Username'>
-		<input type="text" name="password" placeholder='Password'>
-		<textarea name="bio"></textarea>
-		<input type="text" name="image" placeholder='Avatar'>
-		<button name="create">CREATE</button>
+		<div class="new-user-inputs">
+			<h1>Create Profile</h1>
+			<input type="text" name="name" placeholder='Name'>
+			<input type="text" name="username" placeholder='Username'>
+			<input type="text" name="password" placeholder='Password'>
+			<textarea name="bio" cols=33 placeholder='Bio'></textarea>
+			<input type="text" name="image" placeholder='Avatar'>
+			<button name="create">CREATE</button>
+		</div>
 	</template>
 
 	<template id="edit-user-template">
@@ -144,13 +147,24 @@
 	</template>
 
 	<template id="artwork-nav-view-template">
-		<div class="search-view">
 			<img src="{{image_thumb}}" alt="">
+
+			{{#if primaryArtistNameOnly}}
+			<p class="artist">{{primaryArtistNameOnly}}</p>
+			{{else}}
 			<p class="artist">{{artist}}</p>
+			{{/if}}
+
 			<p class="title">{{title}}</p>
+
+			{{#if dateText}}
+			<p class="date">{{dateText}}</p>
+			{{else}}
 			<p class="date">{{date}}</p>
+			{{/if}}
+
 			<p class="medium">{{medium}}</p>
-			<p class="gallery">Gallery: {{gallery}}</p>
+			<p class="gallery">Located in Gallery: {{gallery}}</p>
 		</div>
 	</template>
 

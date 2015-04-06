@@ -41,7 +41,7 @@ App.Views.ArtworkModal = Backbone.View.extend({
 
 	hideModal: function() {
 		console.log('click event triggered');
-		this.$el.hide();
+		$('#artwork-modal').hide();
 		App.router.navigate(App.router.preModalRoute, {trigger:true});
 	},
 
