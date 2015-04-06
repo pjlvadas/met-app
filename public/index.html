@@ -4,6 +4,9 @@
 	<meta charset="UTF-8">
 	<title>Met App</title>
 	<link rel="stylesheet" href="/css/style.css" media="screen" title="no title" charset="utf-8">
+	<link rel="icon" href="favicon.ico" type="image/x-icon">
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
 	<script src='bundle.js'></script>
 	<script src='js/app.js'></script>
 
@@ -42,13 +45,23 @@
 </head>
 <body>
 	<nav class="fixed-nav-bar">
-		<ul>
+		<ul class="nav">
 			<li><a href="#home">HOME</a></li>
-			<li><a href="#search">SEARCH</a></li>
 			<li><a href="#login">LOGIN</a></li>
+			<li class="nav-search" id="search-section">
+				<input type="search" id="search" name="search" placeholder="Search for..."><button id="search-button">Search</button>
+				<select name="search-type">
+					<option value="artist">Artist</option>
+					<option value="title">Title</option>
+				</select>
+			</li>
 		</ul>
 	</nav>
-	<h1>MET APP</h1>
+
+	<div id="logo">
+		<h1>MET APP</h1>
+	</div>
+
 	<div id="main"></div>
 	<div id="artwork-modal"></div>
 
@@ -58,27 +71,16 @@
 	</template>
 
 	<template id="navigation-view-template">
-	<div id="navigation-container">
-		<section id'search-section'>
-			<input type="text" name='search'>
+	<div class="box" id="navigation-container">
+		<form class="search-section" id='search-section'>
+			<input type="text" id="search" name="search" placeholder="Search for..." required>
 			<select name="search-type">
-				<option value="artist">Artist Search</option>
-				<option value="title">Title Search</option>
+				<option value="artist">Artist</option>
+				<option value="title">Title</option>
 			</select>
-			<button id="search-button">Search</button>
-		</section>
+			<button type="submit" id="search-button">Search</button>
+		</form>
 	</div>
-	</template>
-
-	<template id="artwork-nav-view-template">
-		<div class="search-view">
-			<img src="{{image_thumb}}" alt="">
-			<p class="artist">{{artist}}</p>
-			<p class="title">{{title}}</p>
-			<p class="start_date">{{startDate}}</p>
-			<p class="end_date">{{endDate}}</p>
-			<p class="culture">{{culture}}</p>
-		</div>
 	</template>
 
 	<template id="user-view-template">
