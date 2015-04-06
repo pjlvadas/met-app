@@ -207,22 +207,36 @@ body {
 }
 
 .search-view {
-	border: 1px solid;
+	border-top: 1px solid;
+	border-bottom: 1px solid;	
 	border-color: red;
 	padding: 4px 0px 4px 4px;
 	margin: 2px 2px;
+	height: auto;
+	position: relative;
 }
 
 .search-view img {
+	position: absolute;
 	float: left;
 	border: 2px solid;
 	border-color: black;
+	z-index: 1000;
+	width: auto;
 }
 
 .search-view p {
+	border-top: 1px solid;
+	border-bottom: 1px solid;	
+	border-color: green;
+	width: 50%;
+	margin-left: 200px;
+	word-wrap: break-word;
 }
 
-.search-view p.artist {}
+.search-view p.artist {
+	font-weight: bold;
+}
 
 .search-view p.title {}
 
@@ -230,4 +244,6 @@ body {
 
 .search-view p.medium {}
 
-.search-view p.gallery {}
+.search-view p.gallery {
+	font-style: italic;
+}
