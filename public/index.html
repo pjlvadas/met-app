@@ -13,6 +13,7 @@
 	<script src='js/models/artwork.js'></script>
 	<script src='js/models/comment.js'></script>
 	<script src='js/models/user.js'></script>
+	<script src='js/models/nytimes.js'></script>
 
 	<script src='js/collections/artworks.js'></script>
 	<script src='js/collections/comments.js'></script>
@@ -40,21 +41,24 @@
 
 	<script src='js/views/navigationView.js'></script>
 	<script src='js/views/userLogin.js'></script>
+	<script src='js/views/nytimes.js'></script>
 	<script src='js/routers/router.js'></script>
 
 </head>
 <body>
+
 	<nav class="fixed-nav-bar">
 		<ul class="nav">
 			<li><a href="#home">HOME</a></li>
 			<li><a href="#login">LOGIN</a></li>
-			<li class="nav-search" id="search-section">
-				<input type="search" id="search" name="search" placeholder="Search for..."><button id="search-button">Search</button>
+			<li class="nav-search" id="nav-search-section">
+				<input type="bar-search" id="bar-search" name="bar-search" placeholder="Search for..."><button id="bar-search-button">Search</button>
 				<select name="search-type">
 					<option value="artist">Artist</option>
 					<option value="title">Title</option>
 				</select>
 			</li>
+			<li><a href="#events">EVENTS</a></li>
 		</ul>
 	</nav>
 
@@ -63,16 +67,11 @@
 	</div>
 
 	<div id="main"></div>
-	<div id="search">
-		<input type="text" name='search'>
-		<select name="search-type">
-			<option value="artist">Artist Search</option>
-			<option value="title">Title Search</option>
-		</select>
-		<button id="search-button">Search</button>
-		<section id ="search-results">
-		</section>
+
+	<div id="nytimes-events">
+		<h1>Events at the Met</h1>
 	</div>
+
 	<div id="artwork-modal"></div>
 
 	<template id="login-template">
@@ -80,6 +79,13 @@
 		<input type="text" name="username" placeholder="Username">
 		<button name="login">Log In</button>
 		<button name="create-profile">Create Profile</button>
+	</template>
+
+	<template id="nytimes-template">
+		<h2>{{event_name}}</h2>
+		<a href={{event_detail_url}}>Visit the NY Times for Details</a>
+		<p>Description: {{web_description}}</p>
+		<p>{{date_time_description}}</p>
 	</template>
 
 	<template id="navigation-view-template">
