@@ -18,9 +18,10 @@ App.router = Backbone.Router.extend({
   },
 
   user: function(id) {
-    console.log('user router')
+    console.log('user route')
     $('#main').empty();
     $('#search').hide();
+    $('#nytimes-events').hide();
     App.usersCollection.fetch()
       .done(function() {
         var user = App.usersCollection.get(id);
@@ -33,6 +34,7 @@ App.router = Backbone.Router.extend({
     if (sessionStorage.getItem('currentUser')) {
       $('#main').empty();
       $('#search').hide();
+      $('#nytimes-events').hide();
       var userId = sessionStorage.getItem('currentUser');
       App.router.navigate('users/' + userId, {trigger:true});
     }
@@ -40,6 +42,7 @@ App.router = Backbone.Router.extend({
 
   search: function() {
     console.log('search route');
+    $('#nytimes-events').hide();
     $('#main').empty();
     $('#search-results').empty();
     $('#search').show();
@@ -63,6 +66,7 @@ App.router = Backbone.Router.extend({
 
   searchQuery: function(query) {
     console.log('search query route');
+    $('#nytimes-events').hide();
     $('#main').empty();
     $('#search-results').empty();
     var query = encodeURI(query);
@@ -81,6 +85,7 @@ App.router = Backbone.Router.extend({
     console.log('login route');
     $('#main').empty();
     $('#search').hide();
+    $('#nytimes-events').hide();
     new App.Views.UserLogin();
   },
 
@@ -125,6 +130,7 @@ App.router = Backbone.Router.extend({
   createProfile: function() {
     console.log('create profile route');
     $('#main').empty();
+    $('#nytimes-events').hide();
     new App.Views.NewUser();
     },
 
