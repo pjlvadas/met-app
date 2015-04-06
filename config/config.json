@@ -2,7 +2,8 @@
   "development": {
     "database": "team_gaia_development",
     "host": "127.0.0.1",
-    "dialect": "postgres"
+    "dialect": "sqlite",
+    "storage": "./db/database.sqlite"
     },
   "test": {
     "database": "team_gaia_test",
