@@ -1,5 +1,7 @@
 App.Views.NewUser = Backbone.View.extend({
 
+	className: 'new-user',
+
 	initialize: function() {
 		this.template = Handlebars.compile($('#new-user-template').html());
 		this.render();
@@ -22,7 +24,14 @@ App.Views.NewUser = Backbone.View.extend({
 				bio: $('textarea').val(),
 				avatar: $('input[name="image"]').val()
 			}
-			var user = App.usersCollection.create(data);
-			App.router.navigate('users/'+user.id, {trigger:true});
+			$.ajax({
+				url: '/users',
+				method: 'POST',
+				data: data
+			})
+			.done(function(newUser) {
+				App.router.navigate('users/'+ newUser.id, {trigger:true});
+			});
+
 		}
 });
