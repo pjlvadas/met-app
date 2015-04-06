@@ -42,3 +42,35 @@
 	color: rgb(40, 44, 47);
 	text-decoration: none;
 }
+
+#my-gallery {
+	position: absolute;
+	top: 60px;
+	left: 350px;
+}
+
+.gallery-piece img{
+	width: 130px;
+	height: 130px;
+}
+
+.gallery-piece hr {
+	margin: 8px 0px 16px 0px;
+}
+
+.edit-user input {
+	display: block;
+	margin: 0px 0px 10px 0px;
+}
+
+.edit-user textarea {
+	margin: 0px 0px 10px 0px;
+}
+
+.user-login input{
+	display: block;
+}
+
+.user-login button {
+	display: block;
+}
