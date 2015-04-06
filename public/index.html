@@ -36,7 +36,7 @@
 
 	<script src='js/views/gallery/gallery.js'></script>
 	<script src='js/views/gallery/galleryPiece.js'></script>
-	<!-- // <script src='js/views/galleryModal.js'></script> -->
+	<script src='js/views/gallery/galleryModal.js'></script>
 
 	<script src='js/views/navigationView.js'></script>
 	<script src='js/views/userLogin.js'></script>
@@ -63,44 +63,56 @@
 	</div>
 
 	<div id="main"></div>
+	<div id="search">
+		<input type="text" name='search'>
+		<select name="search-type">
+			<option value="artist">Artist Search</option>
+			<option value="title">Title Search</option>
+		</select>
+		<button id="search-button">Search</button>
+		<section id ="search-results">
+		</section>
+	</div>
 	<div id="artwork-modal"></div>
 
 	<template id="login-template">
+		<h1>Log In or Create Profile</h1>
 		<input type="text" name="username" placeholder="Username">
+		<button name="login">Log In</button>
 		<button name="create-profile">Create Profile</button>
 	</template>
 
 	<template id="navigation-view-template">
-	<div class="box" id="navigation-container">
-		<form class="search-section" id='search-section'>
-			<input type="text" id="search" name="search" placeholder="Search for..." required>
-			<select name="search-type">
-				<option value="artist">Artist</option>
-				<option value="title">Title</option>
-			</select>
-			<button type="submit" id="search-button">Search</button>
-		</form>
-	</div>
+			<div class="box" id="navigation-container">
+				<div class="search-section" id='search-section'>
+				<input type="text" id="search" name="search" placeholder="Search for..." required>
+				<select name="search-type">
+					<option value="artist">Artist</option>
+					<option value="title">Title</option>
+				</select>
+				<button name="search-button">Search</button>
+			</div>
+		</div>
 	</template>
 
 	<template id="user-view-template">
-		<div class='user-view'>
 			<img src='{{avatar}}' alt="">
 			<p class='name'>{{name}}</p>
 			<p class='username'>{{username}}</p>
 			<p class='bio'>{{bio}}</p>
 			<button name="edit">Edit Profile</button>
 			<div id="my-gallery">
+				<h1>{{name}}'s Gallery</h1>
 			</div>
-		</div>
 	</template>
 
 	<template id="gallery-piece">
 		<img src="{{img_url}}" alt="gallery piece" />
-		<p>{{title}}</p>
-		<p>{{artist}}</p>
-		<p>{{date}}</p>
-		<p>{{medium}}</p>
+		<p>Title: {{title}}</p>
+		<p>Artist: {{artist}}</p>
+		<p>Date: {{date}}</p>
+		<p>Medium: {{medium}}</p>
+		<hr>
 	</template>
 
 	<template id="new-user-template">
@@ -113,10 +125,11 @@
 	</template>
 
 	<template id="edit-user-template">
+		<h1>Edit Profile</h1>
 		<input type="text" name="name" value="{{name}}">
 		<input type="text" name="username" value="{{username}}">
 		<input type="text" name="password" value="{{password}}">
-		<input type="text" name="bio" value="{{bio}}">
+		<textarea name="bio" cols=31>{{bio}}</textarea>
 		<input name="avatar" value="{{avatar}}">
 		<button class="edit">EDIT</button>
 		<button class="delete">DELETE</button>
@@ -156,19 +169,38 @@
 		</div>
 	</template>
 
+	<template id="gallery-modal">
+		<div class="gallery-modal-view">
+			<img src="{{img_url}}" alt="">
+			<p class="artist">Artist: {{artist}}</p>
+			<p class="title">Title: {{title}}</p>
+			<p class="date">Date: {{date}}</p>
+			<p class="medium">Medium: {{medium}}</p>
+			{{#if gallery}}
+			<p class="gallery">Gallery: {{gallery}}</p>
+			{{/if}}
+			<button name="comment">COMMENT</button>
+			<button name="close">CLOSE</button>
+			<div class="comment-container">
+			</div>
+			<div id="new-comment-container">
+			</div>
+		</div>
+	</template>
+
 	<template id="comment-view-template">
 		<div class='user-view'>
 <!-- 			<img src='{{avatar}}' alt=""> -->
 			<p class='title'>{{title}}</p>
 			<p class='content'>{{content}}</p>
 			<p class='date'>{{date}}</p>
+			<p class='author'>{{author}}</p>
 		</div>
 	</template>
 
 	<template id="new-comment-template">
-		<input type="text" class="title">
-		<input type="text" class="content">
-		<input type="text" class="date">
+		<input type="text" name="title" placeholder="Title">
+		<input type="text" name="content" placeholder="Content">
 <!-- 		<input type="text" class="avatar"> -->
 		<button class="create">CREATE</button>
 	</template>

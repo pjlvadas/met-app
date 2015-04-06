@@ -1,9 +1,9 @@
 App.Views.NavigationView = Backbone.View.extend({
 
+	el: '#search',
+
 	initialize: function() {
 		console.log('NAV VIEW CREATED');
-	this.template = Handlebars.compile($('#navigation-view-template').html());
-	this.render();
 	},
 
 	render: function() {

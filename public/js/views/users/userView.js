@@ -1,8 +1,6 @@
 App.Views.User = Backbone.View.extend({
 
-	// tagName: 'aside',
-
-	// className: 'user',
+	className: 'user-view',
 
 	initialize: function() {
 		console.log('new USER VIEW created');
