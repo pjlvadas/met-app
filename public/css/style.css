@@ -208,7 +208,7 @@ body {
 
 .search-view {
 	border-top: 1px solid;
-	border-bottom: 1px solid;	
+	border-bottom: 1px solid;
 	border-color: red;
 	padding: 4px 0px 4px 4px;
 	margin: 2px 2px;
@@ -227,7 +227,7 @@ body {
 
 .search-view p {
 	border-top: 1px solid;
-	border-bottom: 1px solid;	
+	border-bottom: 1px solid;
 	border-color: green;
 	width: 50%;
 	margin-left: 200px;
@@ -246,4 +246,20 @@ body {
 
 .search-view p.gallery {
 	font-style: italic;
+}
+
+#artwork-modal {
+	display: none;
+	overflow: scroll;
+	position: fixed;
+	top: 75px;
+	left: 400px;
+	padding-bottom: 10px;
+	background-color: rgba(0, 0, 0, 0.2);
+	border: 2px solid black;
+	z-index: 100;
+}
+
+#artwork-modal img {
+	height: 500px;
 }
