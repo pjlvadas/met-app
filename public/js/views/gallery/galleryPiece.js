@@ -1,5 +1,7 @@
 App.Views.GalleryPiece = Backbone.View.extend({
 
+  className: 'gallery-piece',
+
   initialize: function() {
     console.log('gallery piece view');
     this.template = Handlebars.compile($('#gallery-piece').html());

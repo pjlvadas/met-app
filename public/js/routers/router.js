@@ -4,7 +4,7 @@ App.router = Backbone.Router.extend({
   },
 
   routes: {
-    '': 'homepage',
+    'home': 'homepage',
     'search': 'search',
     'search/:query': 'searchQuery',
     'login': 'login',
@@ -19,6 +19,7 @@ App.router = Backbone.Router.extend({
   user: function(id) {
     console.log('user router')
     $('#main').empty();
+    $('#search').hide();
     App.usersCollection.fetch()
       .done(function() {
         var user = App.usersCollection.get(id);
@@ -39,6 +40,7 @@ App.router = Backbone.Router.extend({
   search: function() {
     console.log('search route');
     $('#main').empty();
+    $('#search-results').empty();
     $('#search').show();
     new App.Views.NavigationView();
   },
@@ -47,6 +49,7 @@ App.router = Backbone.Router.extend({
     console.log('search query route');
     $('#main').empty();
     $('#search-results').empty();
+    var query = encodeURI(query);
     $.ajax({
       url: 'http://scrapi.org/search/' + query,
       method: 'GET'
@@ -103,20 +106,21 @@ App.router = Backbone.Router.extend({
       });
     },
 
-    createProfile: function() {
-      console.log('create profile route');
-      $('#main').empty();
-      new App.Views.NewUser();
+  createProfile: function() {
+    console.log('create profile route');
+    $('#main').empty();
+    new App.Views.NewUser();
     },
 
-    editProfile: function(id) {
-      console.log('edit profile route');
-      $('#main').empty();
-      App.usersCollection
-        .fetch()
-        .done(function() {
-          var userModel = App.usersCollection.get(id);
-          new App.Views.EditUser({model: userModel});
-        });
-      }
+  editProfile: function(id) {
+    console.log('edit profile route');
+    $('#main').empty();
+    $('#search').hide();
+    App.usersCollection
+      .fetch()
+      .done(function() {
+        var userModel = App.usersCollection.get(id);
+        new App.Views.EditUser({model: userModel});
+      });
+    }
 });

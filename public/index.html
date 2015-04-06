@@ -63,28 +63,30 @@
 	<div id="artwork-modal"></div>
 
 	<template id="login-template">
+		<h1>Log In or Create Profile</h1>
 		<input type="text" name="username" placeholder="Username">
+		<button name="login">Log In</button>
 		<button name="create-profile">Create Profile</button>
 	</template>
 
 	<template id="user-view-template">
-		<div class='user-view'>
 			<img src='{{avatar}}' alt="">
 			<p class='name'>{{name}}</p>
 			<p class='username'>{{username}}</p>
 			<p class='bio'>{{bio}}</p>
 			<button name="edit">Edit Profile</button>
 			<div id="my-gallery">
+				<h1>{{name}}'s Gallery</h1>
 			</div>
-		</div>
 	</template>
 
 	<template id="gallery-piece">
 		<img src="{{img_url}}" alt="gallery piece" />
-		<p>{{title}}</p>
-		<p>{{artist}}</p>
-		<p>{{date}}</p>
-		<p>{{medium}}</p>
+		<p>Title: {{title}}</p>
+		<p>Artist: {{artist}}</p>
+		<p>Date: {{date}}</p>
+		<p>Medium: {{medium}}</p>
+		<hr>
 	</template>
 
 	<template id="new-user-template">
@@ -97,10 +99,11 @@
 	</template>
 
 	<template id="edit-user-template">
+		<h1>Edit Profile</h1>
 		<input type="text" name="name" value="{{name}}">
 		<input type="text" name="username" value="{{username}}">
 		<input type="text" name="password" value="{{password}}">
-		<input type="text" name="bio" value="{{bio}}">
+		<textarea name="bio" cols=31>{{bio}}</textarea>
 		<input name="avatar" value="{{avatar}}">
 		<button class="edit">EDIT</button>
 		<button class="delete">DELETE</button>

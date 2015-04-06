@@ -1,4 +1,7 @@
 App.Views.UserLogin = Backbone.View.extend({
+
+  className: 'user-login',
+
   initialize: function() {
     console.log('login view');
     this.template = Handlebars.compile($('#login-template').html());
@@ -13,11 +16,12 @@ App.Views.UserLogin = Backbone.View.extend({
 
   events: {
     'keypress input[name="username"]': 'login',
-    'click button': 'createProfile'
+    'click button[name="create-profile"]': 'createProfile',
+    'click button[name="login"]': 'login'
   },
 
   login: function(e) {
-    if (e.keyCode === 13) {
+    if (e.keyCode === 13 || e.type === 'click') {
       var username = $('input[name="username"]').val();
       var currentUser = App.usersCollection.findWhere({username: username});
       var id = currentUser.id;
