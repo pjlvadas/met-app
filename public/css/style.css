@@ -33,7 +33,7 @@ body {
 
 .fixed-nav-bar li {
 	display: inline-block;
-	width: 33%;
+	width: 20%;
 	margin: 0;
 	padding: 0;
 }
@@ -50,7 +50,7 @@ body {
 
 .fixed-nav-bar li.nav-search {
 	display: inline-block;
-	width: 33%;
+	width: 25%;
 	margin: 0;
 	padding: 0;
 /*	border-radius: 10px;*/
@@ -205,3 +205,21 @@ body {
 .user-login button {
 	display: block;
 }
+
+#artwork-modal {
+	display: none;
+	overflow: scroll;
+	position: fixed;
+	top: 75px;
+	left: 400px;
+	padding-bottom: 10px;
+	background-color: rgba(0, 0, 0, 0.2);
+	border: 2px solid black;
+	z-index: 100;
+}
+
+#artwork-modal img {
+	height: 500px;
+}
+
+
