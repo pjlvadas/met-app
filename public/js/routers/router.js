@@ -22,6 +22,7 @@ App.router = Backbone.Router.extend({
     $('#main').empty();
     $('#search-results').hide();
     $('#nytimes-events').hide();
+    $('#main').show();
     App.usersCollection.fetch()
       .done(function() {
         var user = App.usersCollection.get(id);

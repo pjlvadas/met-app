@@ -209,7 +209,6 @@ body {
 .search-view {
 	border-top: 1px solid;
 	border-bottom: 1px solid;
-	border-color: red;
 	padding: 4px 0px 4px 4px;
 	margin: 2px 2px;
 	height: auto;
@@ -220,15 +219,11 @@ body {
 	position: absolute;
 	float: left;
 	border: 2px solid;
-	border-color: black;
 	z-index: 1000;
 	width: auto;
 }
 
 .search-view p {
-	border-top: 1px solid;
-	border-bottom: 1px solid;
-	border-color: green;
 	width: 50%;
 	margin-left: 200px;
 	word-wrap: break-word;
