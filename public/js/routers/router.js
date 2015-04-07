@@ -4,6 +4,7 @@ App.router = Backbone.Router.extend({
   },
 
   routes: {
+    '': 'homepage',
     'home': 'homepage',
     'search': 'search',
     'events': 'events',
@@ -22,6 +23,7 @@ App.router = Backbone.Router.extend({
     $('#main').empty();
     $('#search-results').hide();
     $('#nytimes-events').hide();
+    $('#home-page').hide();
     $('#main').show();
     App.usersCollection.fetch()
       .done(function() {
@@ -32,6 +34,7 @@ App.router = Backbone.Router.extend({
   },
 
   homepage: function() {
+    $('#home-page').hide();
     if (sessionStorage.getItem('currentUser')) {
       $('#main').empty();
       $('#search').hide();
@@ -85,11 +88,12 @@ App.router = Backbone.Router.extend({
     $('#home-page').hide()
     var query = encodeURI(query);
     $.ajax({
-      url: 'http://scrapi.org/search/' + query,
+      url: '/scrapi_search/' + query,
       method: 'GET'
     }).done(function(data){
+      var collection = data.body.collection;
       for (var i = 0; i < 2; i++){
-        var newModel = new App.Models.Artwork(data.collection.items[i]);
+        var newModel = new App.Models.Artwork(collection.items[i]);
         new App.Views.ArtworksNavView({ model: newModel });
       }
     });
@@ -134,10 +138,11 @@ App.router = Backbone.Router.extend({
     $('#artwork-modal').empty();
     $('#artwork-modal').show();
     $.ajax({
-      url: 'http://scrapi.org/object/' + id,
+      url: '/scrapi_object_search/' + id,
       method: 'GET'
     })
       .done(function(data) {
+        var data = data.body;
         var model = new App.Models.Artwork(data);
         new App.Views.ArtworkModal({model: model});
       });
@@ -147,6 +152,8 @@ App.router = Backbone.Router.extend({
     console.log('create profile route');
     $('#main').empty();
     $('#nytimes-events').hide();
+    $('#search-results').hide();
+    $('#home-page').hide();
     new App.Views.NewUser();
     },
 
