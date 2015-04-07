@@ -10,7 +10,7 @@ body {
 	left: 0;
 	z-index: 9999;
 	width: 100%;
-	height: 50px;
+	height: 56px;
     background-color: rgb(40, 44, 47);
 	border: .5px solid #dedede;
 	border-radius: .5px;
@@ -175,25 +175,12 @@ body {
 }
 
 #home-page {
-	background: url('http://i.imgur.com/OC7Eixp.jpg') no-repeat;
-	background-size: cover;
+	background: url('http://i.imgur.com/OC7Eixp.jpg') no-repeat top;
+	background-size: 100% 100%;
 	background-position: fixed;
-	padding-top: 900px;
-}
-
-#my-gallery {
-	position: absolute;
-	top: 100px;
-	left: 350px;
-}
-
-.gallery-piece img{
-	width: 130px;
-	height: 130px;
-}
-
-.gallery-piece hr {
-	margin: 8px 0px 16px 0px;
+	margin-top: -15px;
+	padding-top: 800px;
+/*	z-index: 100;*/
 }
 
 .edit-user input {
@@ -214,10 +201,11 @@ body {
 }
 
 .search-view {
-	padding: 4px 0px 4px 4px;
-	margin: 2px 2px;
+	padding: 10px 0px 20px 4px;
+	margin: 5px;
 	height: auto;
 	position: relative;
+	border-bottom: 2px solid black;
 }
 
 .search-view img {
@@ -230,7 +218,7 @@ body {
 
 .search-view p {
 	width: 50%;
-	margin-left: 200px;
+	margin-left: 215px;
 	word-wrap: break-word;
 }
 
@@ -253,8 +241,10 @@ body {
 	overflow: scroll;
 	position: fixed;
 	top: 75px;
+	bottom: 10px;
 	left: 400px;
 	padding-bottom: 10px;
+	margin-bottom: 10px;
 	background-color: white;
 	border: 2px solid black;
 	z-index: 100;
@@ -264,6 +254,82 @@ body {
 	height: 500px;
 }
 
+.modal-view {
+	margin: 5px;
+}
+
+.modal-view {
+	margin: 5px 0px 10px 5px;
+	margin-bottom: 10px;
+	width: 600px;
+	height: 600px;
+	padding-bottom: 10px;
+}
+
+.modal-view img {
+	border: 2px solid black;
+	height: 300px;
+	width: auto;
+	margin-left: 100px;
+	margin-top: 10px;
+
+}
+
+.modal-view p {
+	margin-left: 5px;
+}
+
+.modal-view .title {
+	font-weight: bold;
+	font-size: 18px;
+	font-style: italic;
+}
+
+.modal-view .artist {
+	font-weight: bold;
+	font-size: 18px;
+}
+
+.modal-view button {
+	overflow: visible;
+	position: relative;
+	border: 0;
+	padding: 0;
+	cursor: pointer;
+	height: 25px;
+	width: 75px;
+	font: bold 15px;
+	color: #fff;
+	text-transform: uppercase;
+	background: #d83c3c;
+	border-radius: 3px;
+	text-shadow: 0 -1px 0 rgba(0,0,0,.3);
+	margin-top: 5px;
+/*	margin-left: 5px;*/
+}
+
+.modal-view .add {
+	width: 135px;
+}
+
+.modal-view button:hover {
+	background: #e54040;
+}
+
+.modal-view button:active,
+.modal-view button:focus {
+	background: #c42f2f;
+	outline: 0;
+}
+
+.modal-view button:before {
+	border-right-color: #e54040;
+}
+
+.modal-view button:focus:before,
+.modal-view button:active:before {
+	border-right-color: #c42f2f;
+}
 
 .comment-view {
 	width: 50%;
@@ -278,7 +344,7 @@ body {
 	margin-left: 10px;
 }
 
-.comment-view p.title {
+.comment-view p.subject {
 	font-weight: 900;
 	margin-top: 8px;
 }
@@ -307,7 +373,7 @@ body {
 	margin-top: 20px;
 }
 
-.new-comment .title {
+.new-comment .subject {
 	width: 133px;
 	height: 20px;
 	font: bold 15px;
@@ -317,7 +383,7 @@ body {
 	border: 1px solid grey;
 }
 
-.new-comment .title:focus {
+.new-comment .subject:focus {
 	outline: 0;
 	background: #fff;
 }
@@ -557,6 +623,78 @@ body {
 	border-right-color: #c42f2f;
 }
 
+.user-view #my-gallery {
+	position: absolute;
+	top: 75px;
+	left: 350px;
+	height: 220px;
+	padding: 5px 15px 0px 20px;
+	margin-bottom: 10px;
+}
+
+.user-view #my-gallery h1 {
+	border: 2px solid black;
+	text-align: center;
+	padding: 5px 3px 3px 3px;
+}
+
+#my-gallery .gallery-piece {
+/*	margin-top: 10px;*/
+/*	padding-top: 5px;*/
+	margin-bottom: 10px;
+	padding-bottom: 10px;
+	border-bottom: 2px solid black;
+}
+
+#my-gallery .paragraphs {
+	margin-top: -5px;
+	margin-left: 140px;
+	padding-top: 1px;
+	word-wrap: break-word;
+	position: relative;
+	padding-left: 5px;
+	padding-bottom: 5px;
+}
+
+#my-gallery .image-container {
+	float: left ;
+}
+
+#my-gallery .gallery-piece img {
+	position: absolute;
+	width: auto;
+	height: 160px;
+	padding-left: 5px;
+	float: left;
+}
+
+.user-view {
+	padding-left: 5px;
+}
+
+.user-view .image {
+	border: 2px solid black;
+	margin-top: -5px;
+	width: auto;
+	height: auto;
+}
+
+.user-view .name {
+	font-size: 20px;
+	margin-left: 5px;
+}
+
+.user-view .username {
+	font-weight: bold;
+	font-size: 25px;
+	margin-left: 3px;
+	text-transform: uppercase;
+}
+
+.user-view .bio {
+	margin-left: 5px;
+}
+
 .user-view button {
 	overflow: visible;
 	position: relative;
@@ -573,6 +711,7 @@ body {
 	text-shadow: 0 -1px 0 rgba(0,0,0,.3);
 	margin-top: 5px;
 	margin-bottom: 5px;
+	margin-left: 3px;
 }
 
 .user-view button:hover {
@@ -686,53 +825,36 @@ body {
 	border-right-color: #c42f2f;
 }
 
-.modal-view {
-	margin: 5px;
-}
-
-.modal-view button {
-	overflow: visible;
-	position: relative;
-	border: 0;
-	padding: 0;
-	cursor: pointer;
-	height: 25px;
-	width: 75px;
-	font: bold 15px;
-	color: #fff;
-	text-transform: uppercase;
-	background: #d83c3c;
-	border-radius: 3px;
-	text-shadow: 0 -1px 0 rgba(0,0,0,.3);
-	margin-top: 5px;
-/*	margin-left: 5px;*/
-}
-
-.modal-view .add {
-	width: 135px;
-}
-
-.modal-view button:hover {
-	background: #e54040;
-}
-
-.modal-view button:active,
-.modal-view button:focus {
-	background: #c42f2f;
-	outline: 0;
-}
-
-.modal-view button:before {
-	border-right-color: #e54040;
-}
-
-.modal-view button:focus:before,
-.modal-view button:active:before {
-	border-right-color: #c42f2f;
-}
-
 .gallery-modal-view {
-	margin: 5px;
+	margin: 5px 0px 10px 5px;
+	margin-bottom: 10px;
+	width: 600px;
+	height: 600px;
+	padding-bottom: 10px;
+}
+
+.gallery-modal-view img {
+	border: 2px solid black;
+	height: 300px;
+	width: auto;
+	margin-left: 100px;
+	margin-top: 10px;
+
+}
+
+.gallery-modal-view p {
+	margin-left: 5px;
+}
+
+.gallery-modal-view .title {
+	font-weight: bold;
+	font-size: 18px;
+	font-style: italic;
+}
+
+.gallery-modal-view .artist {
+	font-weight: bold;
+	font-size: 18px;
 }
 
 .gallery-modal-view button {
@@ -770,4 +892,17 @@ body {
 .gallery-modal-view button:focus:before,
 .gallery-modal-view button:active:before {
 	border-right-color: #c42f2f;
+}
+
+.nyt {
+	padding: 1px;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+.nyt-events {
+	border: 1px solid black;
+	padding: 0px 5px 10px 5px;
+	margin: 5px;
+
 }
