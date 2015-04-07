@@ -18,9 +18,11 @@ App.router = Backbone.Router.extend({
   },
 
   user: function(id) {
-    console.log('user router')
+    console.log('user route')
     $('#main').empty();
-    $('#search').hide();
+    $('#search-results').hide();
+    $('#nytimes-events').hide();
+    $('#main').show();
     App.usersCollection.fetch()
       .done(function() {
         var user = App.usersCollection.get(id);
@@ -33,22 +35,35 @@ App.router = Backbone.Router.extend({
     if (sessionStorage.getItem('currentUser')) {
       $('#main').empty();
       $('#search').hide();
+      $('#nytimes-events').hide();
       var userId = sessionStorage.getItem('currentUser');
       App.router.navigate('users/' + userId, {trigger:true});
+    }
+    else {
+      $('#main').hide();
+      $('#nytimes-events').hide();
+      $('#search-results').hide();
+      $('#home-page').show();
     }
   },
 
   search: function() {
     console.log('search route');
-    $('#main').empty();
+    $('#nytimes-events').hide();
+    $('#main').hide();
+    $('#home-page').hide()
     $('#search-results').empty();
-    $('#search').show();
+    $('#search-results').show();
     new App.Views.NavigationView();
   },
 
   events: function() {
     console.log('events route');
+    $('#main').hide();
+    $('#search-results').hide();
+    $('#home-page').hide();
     $('#nytimes-events').empty();
+    $('#nytimes-events').show();
     $.ajax({
       url: '/ny_times_events?query="The Metropolitan Museum of Art"',
       method: 'GET'
@@ -63,8 +78,11 @@ App.router = Backbone.Router.extend({
 
   searchQuery: function(query) {
     console.log('search query route');
-    $('#main').empty();
+    $('#nytimes-events').hide();
+    $('#main').hide();
     $('#search-results').empty();
+    $('#search-results').show();
+    $('#home-page').hide()
     var query = encodeURI(query);
     $.ajax({
       url: 'http://scrapi.org/search/' + query,
@@ -80,7 +98,10 @@ App.router = Backbone.Router.extend({
   login: function() {
     console.log('login route');
     $('#main').empty();
-    $('#search').hide();
+    $('#main').show();
+    $('#search-results').hide();
+    $('#nytimes-events').hide();
+    $('#home-page').hide();
     new App.Views.UserLogin();
   },
 
@@ -125,6 +146,7 @@ App.router = Backbone.Router.extend({
   createProfile: function() {
     console.log('create profile route');
     $('#main').empty();
+    $('#nytimes-events').hide();
     new App.Views.NewUser();
     },
 

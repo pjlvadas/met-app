@@ -17,6 +17,7 @@ $(function() {
 		console.log('bar search button CLICKED');
 		var newSearch = $('.nav-search').val();
 		var query = $('#bar-search').val();
+		query = encodeURI(query)
 		App.router.navigate('search/' + query, {trigger: true});
 	});
 	Backbone.history.start();
