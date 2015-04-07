@@ -71,7 +71,7 @@
 		</div>
 	</div>
 	
-	<div id="nytimes-events">
+	<div id="nytimes-events" class="nyt">
  		<h1>Events at the Met</h1>
 	</div>
 
@@ -90,10 +90,12 @@
 	</template>
 
 	<template id="nytimes-template">
-		<h2>{{event_name}}</h2>
-		<a href={{event_detail_url}}>Visit the NY Times for Details</a>
-		<p>Description: {{web_description}}</p>
-		<p>{{date_time_description}}</p>
+		<div class="nyt-events">
+			<h2>{{event_name}}</h2>
+			<p>{{web_description}}</p>
+			<p>Event Date: {{date_time_description}}</p>
+			<a href={{event_detail_url}}>Additional Details</a>
+		</div>
 	</template>
 
 	<template id="navigation-view-template">
@@ -111,10 +113,10 @@
 
 	<template id="user-view-template">
 		<div class="user-view">
-			<img src='{{avatar}}' alt="">
+			<p class='username'>{{username}}'s Profile</p>
+			<img class="image" src='{{avatar}}' alt="">
 			<p class='name'>{{name}}</p>
-			<p class='username'>Username: {{username}}</p>
-			<p class='bio'>Bio: {{bio}}</p>
+			<p class='bio'>{{bio}}</p>
 			<button name="edit">Edit Profile</button>
 			<div id="my-gallery">
 				<h1>{{name}}'s Gallery</h1>
@@ -123,12 +125,16 @@
 	</template>
 
 	<template id="gallery-piece">
-		<img src="{{img_url}}" alt="gallery piece" />
-		<p>Title: {{title}}</p>
-		<p>Artist: {{artist}}</p>
-		<p>Date: {{date}}</p>
-		<p>Medium: {{medium}}</p>
-		<hr>
+		<div class="image-container">
+			<img src="{{img_url}}" alt="gallery piece" />
+		</div>
+		<br>
+		<div class="paragraphs">
+			<p>Title: {{title}}</p>
+			<p>Artist: {{artist}}</p>
+			<p>Date: {{date}}</p>
+			<p>Medium: {{medium}}</p>
+		</div>
 	</template>
 
 	<template id="new-user-template">
@@ -189,30 +195,32 @@
 	<template id="artwork-modal-template">
 		<div class="modal-view">
 			<img src="{{img_url}}" alt="">
-			<p class="artist">Artist: {{artist}}</p>
-			<p class="title">Title: {{title}}</p>
-			<p class="date">Date: {{date}}</p>
-			<p class="medium">Medium: {{medium}}</p>
+			<p class="artist">{{artist}}</p>
+			<p class="title">{{title}}</p>
+			<p class="date">YEAR: {{date}}</p>
+			<p class="medium">MEDIUM: {{medium}}</p>
 			{{#if gallery}}
 			<p class="gallery">Gallery: {{gallery}}</p>
 			{{/if}}
 			<button class="add" name="add">ADD TO MY GALLERY</button>
 			<button class="close" name="close">CLOSE</button>
+			<br>
 		</div>
 	</template>
 
 	<template id="gallery-modal">
 		<div class="gallery-modal-view">
 			<img src="{{img_url}}" alt="">
-			<p class="artist">Artist: {{artist}}</p>
-			<p class="title">Title: {{title}}</p>
-			<p class="date">Date: {{date}}</p>
-			<p class="medium">Medium: {{medium}}</p>
+			<p class="artist">{{artist}}</p>
+			<p class="title">{{title}}</p>
+			<p class="date">YEAR: {{date}}</p>
+			<p class="medium">MEDIUM: {{medium}}</p>
 			{{#if gallery}}
 			<p class="gallery">Gallery: {{gallery}}</p>
 			{{/if}}
 			<button class="comment" name="comment">COMMENT</button>
 			<button class="close" name="close">CLOSE</button>
+			<br>
 			<div class="comment-container">
 			</div>
 			<div id="new-comment-container">
@@ -223,7 +231,7 @@
 	<template id="comment-view-template">
 		<div class='comment-view'>
 <!-- 		<img src='{{avatar}}' alt=""> -->
-			<p class='title'>{{title}}</p>
+			<p class='subject'>{{title}}</p>
 			<p class='content'>{{content}}</p>
 			<p class='author'>by {{author}}</p>
 			<p class='date'>{{date}}</p>
@@ -232,7 +240,7 @@
 
 	<template id="new-comment-template">
 		<div class="new-comment">
-			<input type="text" name="title" class="title" placeholder="Subject">
+			<input type="text" name="title" class="subject" placeholder="Subject">
 			<br>
 			<textarea rows="5" cols="30" type="text" name="content" class="content" placeholder="Share Your Thoughts..."></textarea>
 			<br>
