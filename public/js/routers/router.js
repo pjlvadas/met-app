@@ -38,6 +38,7 @@ App.router = Backbone.Router.extend({
     if (sessionStorage.getItem('currentUser')) {
       $('#main').empty();
       $('#search').hide();
+      $('#search-resuts').hide();
       $('#nytimes-events').hide();
       var userId = sessionStorage.getItem('currentUser');
       App.router.navigate('users/' + userId, {trigger:true});
@@ -161,6 +162,9 @@ App.router = Backbone.Router.extend({
     console.log('edit profile route');
     $('#main').empty();
     $('#search').hide();
+    $('#home-page').hide();
+    $('#search-results').hide();
+    $('#nytimes-events').hide();
     App.usersCollection
       .fetch()
       .done(function() {
