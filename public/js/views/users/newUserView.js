@@ -23,7 +23,7 @@ App.Views.NewUser = Backbone.View.extend({
 				password: $('input[name="password"]').val(),
 				bio: $('textarea').val(),
 				avatar: $('input[name="image"]').val()
-			}
+			};
 			$.ajax({
 				url: '/users',
 				method: 'POST',

@@ -22,6 +22,7 @@ App.router = Backbone.Router.extend({
     $('#main').empty();
     $('#search-results').hide();
     $('#nytimes-events').hide();
+    $('#home-page').hide();
     $('#main').show();
     App.usersCollection.fetch()
       .done(function() {
@@ -32,6 +33,7 @@ App.router = Backbone.Router.extend({
   },
 
   homepage: function() {
+    $('#home-page').hide();
     if (sessionStorage.getItem('currentUser')) {
       $('#main').empty();
       $('#search').hide();
