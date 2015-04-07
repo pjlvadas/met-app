@@ -15,7 +15,8 @@ Thanks to the New York Times Event Listing API and scrapi.org for powering this 
 Please feel free to fork this repo! If you have request for an additional feature, or have a bug to report, please contact wdi.team.gaia@gmail.com
 
 
-
+AWESOME MET APP ERD: https://drive.google.com/file/d/0B_VhmN9hqacwbjRMalc1UDhGbTA/view?usp=sharing
+AWESOME MET APP MVP: https://drive.google.com/file/d/0B_VhmN9hqacwc1dmc2JGU2JEY2s/view?usp=sharing
 
 
 
