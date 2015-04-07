@@ -399,3 +399,94 @@ body {
 .new-comment .create:active:before {
 	border-right-color: #c42f2f;
 }
+
+.login-template input {
+	width: 133px;
+	height: 20px;
+	font: bold 15px;
+	border: 0;
+	background: #eee;
+	border-radius: 2px;
+	border: 1px solid grey;
+}
+
+.login-template input:focus {
+	outline: 0;
+	background: #fff;
+}
+
+.login-template button {
+	margin-top: 5px;
+}
+
+.login-template .login {
+	overflow: visible;
+	position: relative;
+	border: 0;
+	padding: 0;
+	cursor: pointer;
+	height: 20px;
+	width: 75px;
+	font: bold 15px;
+	color: #fff;
+	text-transform: uppercase;
+	background: #d83c3c;
+	border-radius: 3px;
+	text-shadow: 0 -1px 0 rgba(0,0,0,.3);
+/*	margin-top: 5px;*/
+}
+
+.login-template .logout {
+	overflow: visible;
+	position: relative;
+	border: 0;
+	padding: 0;
+	cursor: pointer;
+	height: 20px;
+	width: 75px;
+	font: bold 15px;
+	color: #fff;
+	text-transform: uppercase;
+	background: #d83c3c;
+	border-radius: 3px;
+	text-shadow: 0 -1px 0 rgba(0,0,0,.3);
+/*	margin-top: 5px;*/	
+}
+
+.login-template .create-profile {
+	overflow: visible;
+	position: relative;
+	border: 0;
+	padding: 0;
+	cursor: pointer;
+	height: 25px;
+	width: 110px;
+	font: bold 15px;
+	color: #fff;
+	text-transform: uppercase;
+	background: #d83c3c;
+	border-radius: 3px;
+	text-shadow: 0 -1px 0 rgba(0,0,0,.3);
+/*	margin-top: 5px;*/
+}
+
+.login-template button:hover {
+	background: #e54040;
+}
+
+.login-template button:active,
+.login-template button:focus {
+	background: #c42f2f;
+	outline: 0;
+}
+
+.login-template button:before {
+	border-right-color: #e54040;
+}
+
+.login-template button:focus:before,
+.login-template button:active:before {
+	border-right-color: #c42f2f;
+}
+
+
