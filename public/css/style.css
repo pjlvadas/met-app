@@ -269,30 +269,6 @@ body {
 	height: 500px;
 }
 
-.new-user {
-	position: relative;
-}
-
-.new-user-inputs {
-	width: 300px;
-	height: 100px;
-	padding: 20px;
-
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	margin: 0 0 0 -140px;
-}
-
-.new-user-inputs input{
-	display: block;
-	margin: 0 0 5px 0;
-	padding: 0 0 5px 0;
-}
-
-.new-user-inputs button {
-	margin: 0 0 0 80px;
-}
 
 .comment-view {
 	width: 50%;
@@ -402,5 +378,401 @@ body {
 
 .new-comment .create:focus:before,
 .new-comment .create:active:before {
+	border-right-color: #c42f2f;
+}
+
+.login-template input {
+	width: 133px;
+	height: 20px;
+	font: bold 15px;
+	border: 0;
+	background: #eee;
+	border-radius: 2px;
+	border: 1px solid grey;
+}
+
+.login-template input:focus {
+	outline: 0;
+	background: #fff;
+}
+
+.login-template button {
+	margin-top: 5px;
+}
+
+.login-template .login {
+	overflow: visible;
+	position: relative;
+	border: 0;
+	padding: 0;
+	cursor: pointer;
+	height: 20px;
+	width: 75px;
+	font: bold 15px;
+	color: #fff;
+	text-transform: uppercase;
+	background: #d83c3c;
+	border-radius: 3px;
+	text-shadow: 0 -1px 0 rgba(0,0,0,.3);
+/*	margin-top: 5px;*/
+}
+
+.login-template .logout {
+	overflow: visible;
+	position: relative;
+	border: 0;
+	padding: 0;
+	cursor: pointer;
+	height: 20px;
+	width: 75px;
+	font: bold 15px;
+	color: #fff;
+	text-transform: uppercase;
+	background: #d83c3c;
+	border-radius: 3px;
+	text-shadow: 0 -1px 0 rgba(0,0,0,.3);
+/*	margin-top: 5px;*/	
+}
+
+.login-template .create-profile {
+	overflow: visible;
+	position: relative;
+	border: 0;
+	padding: 0;
+	cursor: pointer;
+	height: 25px;
+	width: 110px;
+	font: bold 15px;
+	color: #fff;
+	text-transform: uppercase;
+	background: #d83c3c;
+	border-radius: 3px;
+	text-shadow: 0 -1px 0 rgba(0,0,0,.3);
+/*	margin-top: 5px;*/
+}
+
+.login-template button:hover {
+	background: #e54040;
+}
+
+.login-template button:active,
+.login-template button:focus {
+	background: #c42f2f;
+	outline: 0;
+}
+
+.login-template button:before {
+	border-right-color: #e54040;
+}
+
+.login-template button:focus:before,
+.login-template button:active:before {
+	border-right-color: #c42f2f;
+}
+
+.new-user {
+	position: relative;
+}
+
+.new-user-inputs {
+	width: 300px;
+	height: 300px;
+	padding: 10px 20px 20px 20px;
+
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: 0 0 0 -140px;
+	background-color: white;
+	border: 1px solid black;
+	margin-top: 10px;
+}
+
+.new-user-inputs input{
+	display: block;
+	margin: 0 0 5px 0;
+	padding: 0 0 5px 0;	
+
+	width: 133px;
+	height: 15px;
+	font: bold 15px;
+	border: 0;
+	background: #eee;
+	border-radius: 2px;
+	border: 1px solid grey;	
+}
+
+.new-user-inputs .image {
+	width: 75%;
+}
+
+.new-user-inputs input:focus {
+	outline: 0;
+	background: #fff;
+}
+
+.new-user-inputs textarea {
+	border-radius: 2px;
+	border: 1px solid grey;
+	width: 75%;
+	padding-bottom: 50px;
+/*	height: 50px;*/
+	background: #eee;
+	word-wrap: break-word;
+}
+
+.new-user-inputs textarea:focus {
+	outline: 0;
+	background: #fff;
+}
+
+.new-user-inputs button {
+	overflow: visible;
+	position: relative;
+	border: 0;
+	padding: 0;
+	cursor: pointer;
+	height: 20px;
+	width: 75px;
+	font: bold 15px;
+	color: #fff;
+	text-transform: uppercase;
+	background: #d83c3c;
+	border-radius: 3px;
+	text-shadow: 0 -1px 0 rgba(0,0,0,.3);
+	margin-top: 5px;
+}
+
+.new-user-inputs button:hover {
+	background: #e54040;
+}
+
+.new-user-inputs button:active,
+.new-user-inputs button:focus {
+	background: #c42f2f;
+	outline: 0;
+}
+
+.new-user-inputs button:before {
+	border-right-color: #e54040;
+}
+
+.new-user-inputs button:focus:before,
+.new-user-inputs button:active:before {
+	border-right-color: #c42f2f;
+}
+
+.user-view button {
+	overflow: visible;
+	position: relative;
+	border: 0;
+	padding: 0;
+	cursor: pointer;
+	height: 20px;
+	width: 110px;
+	font: bold 15px;
+	color: #fff;
+	text-transform: uppercase;
+	background: #d83c3c;
+	border-radius: 3px;
+	text-shadow: 0 -1px 0 rgba(0,0,0,.3);
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.user-view button:hover {
+	background: #e54040;
+}
+
+.user-view button:active,
+.user-view button:focus {
+	background: #c42f2f;
+	outline: 0;
+}
+
+.user-view button:before {
+	border-right-color: #e54040;
+}
+
+.user-view button:focus:before,
+.user-view button:active:before {
+	border-right-color: #c42f2f;
+}
+
+.edit-user {
+	position: relative;
+}
+
+.edit-user-inputs {
+	position: absolute;
+	background-color: white;
+	border: 1px solid black;
+	width: 350px;
+	height: 310px;
+
+	padding: 10px 20px 20px 20px;
+	top: 50%;
+	left: 50%;
+	margin: 0 0 0 -140px;
+	margin-top: 10px;
+}
+
+.edit-user-inputs input{
+	display: block;
+	margin: 0 0 5px 0;
+	padding: 0 0 5px 0;	
+
+	width: 133px;
+	height: 15px;
+	font: bold 15px;
+	border: 0;
+	background: #eee;
+	border-radius: 2px;
+	border: 1px solid grey;	
+}
+
+.edit-user-inputs .image {
+	width: 75%;
+}
+
+.edit-user-inputs input:focus {
+	outline: 0;
+	background: #fff;
+}
+
+.edit-user-inputs textarea {
+	border-radius: 2px;
+	border: 1px solid grey;
+	width: 75%;
+	padding-bottom: 50px;
+/*	height: 50px;*/
+	background: #eee;
+	word-wrap: break-word;
+}
+
+.edit-user-inputs textarea:focus {
+	outline: 0;
+	background: #fff;
+}
+
+.edit-user-inputs button {
+	overflow: visible;
+	position: relative;
+	border: 0;
+	padding: 0;
+	cursor: pointer;
+	height: 20px;
+	width: 75px;
+	font: bold 15px;
+	color: #fff;
+	text-transform: uppercase;
+	background: #d83c3c;
+	border-radius: 3px;
+	text-shadow: 0 -1px 0 rgba(0,0,0,.3);
+	margin-top: 5px;
+}
+
+.edit-user-inputs button:hover {
+	background: #e54040;
+}
+
+.edit-user-inputs button:active,
+.edit-user-inputs button:focus {
+	background: #c42f2f;
+	outline: 0;
+}
+
+.edit-user-inputs button:before {
+	border-right-color: #e54040;
+}
+
+.edit-user-inputs button:focus:before,
+.edit-user-inputs button:active:before {
+	border-right-color: #c42f2f;
+}
+
+.modal-view {
+	margin: 5px;
+}
+
+.modal-view button {
+	overflow: visible;
+	position: relative;
+	border: 0;
+	padding: 0;
+	cursor: pointer;
+	height: 25px;
+	width: 75px;
+	font: bold 15px;
+	color: #fff;
+	text-transform: uppercase;
+	background: #d83c3c;
+	border-radius: 3px;
+	text-shadow: 0 -1px 0 rgba(0,0,0,.3);
+	margin-top: 5px;
+/*	margin-left: 5px;*/
+}
+
+.modal-view .add {
+	width: 135px;
+}
+
+.modal-view button:hover {
+	background: #e54040;
+}
+
+.modal-view button:active,
+.modal-view button:focus {
+	background: #c42f2f;
+	outline: 0;
+}
+
+.modal-view button:before {
+	border-right-color: #e54040;
+}
+
+.modal-view button:focus:before,
+.modal-view button:active:before {
+	border-right-color: #c42f2f;
+}
+
+.gallery-modal-view {
+	margin: 5px;
+}
+
+.gallery-modal-view button {
+	overflow: visible;
+	position: relative;
+	border: 0;
+	padding: 0;
+	cursor: pointer;
+	height: 25px;
+	width: 75px;
+	font: bold 15px;
+	color: #fff;
+	text-transform: uppercase;
+	background: #d83c3c;
+	border-radius: 3px;
+	text-shadow: 0 -1px 0 rgba(0,0,0,.3);
+	margin-top: 5px;
+/*	margin-left: 5px;*/
+}
+
+.gallery-modal-view button:hover {
+	background: #e54040;
+}
+
+.gallery-modal-view button:active,
+.gallery-modal-view button:focus {
+	background: #c42f2f;
+	outline: 0;
+}
+
+.gallery-modal-view button:before {
+	border-right-color: #e54040;
+}
+
+.gallery-modal-view button:focus:before,
+.gallery-modal-view button:active:before {
 	border-right-color: #c42f2f;
 }
