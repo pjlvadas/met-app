@@ -110,6 +110,7 @@
 	</template>
 
 	<template id="user-view-template">
+		<div class="user-view">
 			<img src='{{avatar}}' alt="">
 			<p class='name'>{{name}}</p>
 			<p class='username'>Username: {{username}}</p>
@@ -118,6 +119,7 @@
 			<div id="my-gallery">
 				<h1>{{name}}'s Gallery</h1>
 			</div>
+		</div>
 	</template>
 
 	<template id="gallery-piece">
@@ -132,24 +134,26 @@
 	<template id="new-user-template">
 		<div class="new-user-inputs">
 			<h1>Create Profile</h1>
-			<input type="text" name="name" placeholder='Name'>
-			<input type="text" name="username" placeholder='Username'>
-			<input type="text" name="password" placeholder='Password'>
-			<textarea name="bio" cols=33 placeholder='Bio'></textarea>
-			<input type="text" name="image" placeholder='Avatar'>
+			<input type="text" class="name" name="name" placeholder='Name'>
+			<input type="text" class= "username" name="username" placeholder='Username'>
+			<input type="text" class="password" name="password" placeholder='Password'>
+			<textarea name="bio" cols="33" class="bio" placeholder='Bio'></textarea>
+			<input type="text" class="image" name="avatar" placeholder='Avatar image_url'>
 			<button name="create">CREATE</button>
 		</div>
 	</template>
 
 	<template id="edit-user-template">
-		<h1>Edit Profile</h1>
-		<input type="text" name="name" value="{{name}}">
-		<input type="text" name="username" value="{{username}}">
-		<input type="text" name="password" value="{{password}}">
-		<textarea name="bio" cols=31>{{bio}}</textarea>
-		<input name="avatar" value="{{avatar}}">
-		<button class="edit">EDIT</button>
-		<button class="delete">DELETE</button>
+		<div class="edit-user-inputs">
+			<h1>Edit Profile</h1>
+			<input type="text" class="name" name="name" value="{{name}}">
+			<input type="text" class="username" name="username" value="{{username}}">
+			<input type="text" class="password" name="password" value="{{password}}">
+			<textarea class="bio" name="bio" cols="31">{{bio}}</textarea>
+			<input type="text" class="image" name="avatar" value="{{avatar}}">
+			<button class="edit">UPDATE</button>
+			<button class="delete">DELETE</button>
+		</div>
 	</template>
 
 	<template id="artwork-nav-view-template">
@@ -192,8 +196,8 @@
 			{{#if gallery}}
 			<p class="gallery">Gallery: {{gallery}}</p>
 			{{/if}}
-			<button name="add">ADD TO MY GALLERY</button>
-			<button name="close">CLOSE</button>
+			<button class="add" name="add">ADD TO MY GALLERY</button>
+			<button class="close" name="close">CLOSE</button>
 		</div>
 	</template>
 
@@ -207,8 +211,8 @@
 			{{#if gallery}}
 			<p class="gallery">Gallery: {{gallery}}</p>
 			{{/if}}
-			<button name="comment">COMMENT</button>
-			<button name="close">CLOSE</button>
+			<button class="comment" name="comment">COMMENT</button>
+			<button class="close" name="close">CLOSE</button>
 			<div class="comment-container">
 			</div>
 			<div id="new-comment-container">
