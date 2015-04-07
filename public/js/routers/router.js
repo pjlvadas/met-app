@@ -39,12 +39,19 @@ App.router = Backbone.Router.extend({
       var userId = sessionStorage.getItem('currentUser');
       App.router.navigate('users/' + userId, {trigger:true});
     }
+    else {
+      $('#main').hide();
+      $('#nytimes-events').hide();
+      $('#search-results').hide();
+      $('#home-page').show();
+    }
   },
 
   search: function() {
     console.log('search route');
     $('#nytimes-events').hide();
-    $('#main').empty();
+    $('#main').hide();
+    $('#home-page').hide()
     $('#search-results').empty();
     $('#search-results').show();
     new App.Views.NavigationView();
@@ -70,9 +77,10 @@ App.router = Backbone.Router.extend({
   searchQuery: function(query) {
     console.log('search query route');
     $('#nytimes-events').hide();
-    $('#main').empty();
+    $('#main').hide();
     $('#search-results').empty();
     $('#search-results').show();
+    $('#home-page').hide()
     var query = encodeURI(query);
     $.ajax({
       url: 'http://scrapi.org/search/' + query,
@@ -91,6 +99,7 @@ App.router = Backbone.Router.extend({
     $('#main').show();
     $('#search-results').hide();
     $('#nytimes-events').hide();
+    $('#home-page').hide();
     new App.Views.UserLogin();
   },
 
