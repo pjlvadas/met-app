@@ -51,13 +51,20 @@ App.Views.ArtworkModal = Backbone.View.extend({
 		var userId = sessionStorage.getItem('currentUser');
 
 		var addArtwork = function(artwork) {
+
+			alert('Artwork added to your Gallery!');
+
 			var artworkId = artwork.id;
 			$.ajax({
 				url: '/users/' + userId + '/add_artwork',
 				method: 'PUT',
 				data: {artwork_id: artworkId}
 			});
-		};
+
+			$('#artwork-modal').hide();
+
+			};
+
 
 		//Check if artwork is already in the collection. If not,
 		//post to the database and add artwork. If so, just add artwork.
