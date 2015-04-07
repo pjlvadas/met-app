@@ -151,6 +151,8 @@ App.router = Backbone.Router.extend({
     console.log('create profile route');
     $('#main').empty();
     $('#nytimes-events').hide();
+    $('#search-results').hide();
+    $('#home-page').hide();
     new App.Views.NewUser();
     },
 

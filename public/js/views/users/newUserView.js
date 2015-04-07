@@ -24,14 +24,18 @@ App.Views.NewUser = Backbone.View.extend({
 				bio: $('textarea').val(),
 				avatar: $('input[name="image"]').val()
 			};
-			$.ajax({
+			if (App.usersCollection.findWhere({username: data.username})) {
+					alert('That username is taken. Try to be more original.')
+			}
+			else { $.ajax({
 				url: '/users',
 				method: 'POST',
 				data: data
 			})
 			.done(function(newUser) {
+				sessionStorage.setItem('currentUser', newUser.id);
 				App.router.navigate('users/'+ newUser.id, {trigger:true});
 			});
-
 		}
+	}
 });
