@@ -60,6 +60,8 @@ App.router = Backbone.Router.extend({
   events: function() {
     console.log('events route');
     $('#main').hide();
+    $('#search-results').hide();
+    $('#home-page').hide();
     $('#nytimes-events').empty();
     $('#nytimes-events').show();
     $.ajax({
