@@ -225,6 +225,38 @@ app.put('/users/:id/remove_artwork', function(req, res) {
     })
 });
 
+//Scrapi.org routes
+
+app.get('/scrapi_search/:artist', function(req, res) {
+
+  var artist = req.params.artist;
+
+  request({
+    uri: 'http://scrapi.org/search/' + artist,
+    method: 'GET',
+    json: true
+  },
+  function(error, response, body) {
+    var results = response;
+    res.send(results);
+  });
+});
+
+app.get('/scrapi_object_search/:objectId', function(req, res) {
+
+  var objectId = req.params.objectId;
+  request({
+    uri: 'http://scrapi.org/object/' + objectId,
+    method: 'GET',
+    json: true
+  },
+  function(error, response, body) {
+    var results = response;
+    res.send(results);
+  })
+
+})
+
 //NY Times request routes
 
 app.get('/ny_times_events', function(req, res) {
