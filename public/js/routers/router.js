@@ -6,7 +6,6 @@ App.router = Backbone.Router.extend({
   routes: {
     '': 'homepage',
     'home': 'homepage',
-    'search': 'search',
     'events': 'events',
     'login': 'login',
     'search/:query': 'searchQuery',
@@ -37,7 +36,6 @@ App.router = Backbone.Router.extend({
     $('#home-page').hide();
     if (sessionStorage.getItem('currentUser')) {
       $('#main').empty();
-      $('#search').hide();
       $('#search-resuts').hide();
       $('#nytimes-events').hide();
       var userId = sessionStorage.getItem('currentUser');
@@ -49,16 +47,6 @@ App.router = Backbone.Router.extend({
       $('#search-results').hide();
       $('#home-page').show();
     }
-  },
-
-  search: function() {
-    console.log('search route');
-    $('#nytimes-events').hide();
-    $('#main').hide();
-    $('#home-page').hide()
-    $('#search-results').empty();
-    $('#search-results').show();
-    new App.Views.NavigationView();
   },
 
   events: function() {
@@ -93,7 +81,7 @@ App.router = Backbone.Router.extend({
       method: 'GET'
     }).done(function(data){
       var collection = data.body.collection;
-      for (var i = 0; i < 2; i++){
+      for (var i = 0; i < 15; i++){
         var newModel = new App.Models.Artwork(collection.items[i]);
         new App.Views.ArtworksNavView({ model: newModel });
       }
