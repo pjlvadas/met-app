@@ -93,7 +93,7 @@ App.router = Backbone.Router.extend({
       method: 'GET'
     }).done(function(data){
       var collection = data.body.collection;
-      for (var i = 0; i < 2; i++){
+      for (var i = 0; i < 15; i++){
         var newModel = new App.Models.Artwork(collection.items[i]);
         new App.Views.ArtworksNavView({ model: newModel });
       }

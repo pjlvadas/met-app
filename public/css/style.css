@@ -181,6 +181,11 @@ body {
 	padding-top: 900px;
 }
 
+#logo {
+	font-size: 72px;
+	color: #FFFFFF;
+}
+
 #my-gallery {
 	position: absolute;
 	top: 100px;
