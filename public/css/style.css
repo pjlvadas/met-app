@@ -207,8 +207,11 @@ body {
 }
 
 .search-view {
+<<<<<<< HEAD
 	border-top: 1px solid;
 	border-bottom: 1px solid;
+=======
+>>>>>>> e4add303bcd84cc326953b43b63efc48435ec8d8
 	padding: 4px 0px 4px 4px;
 	margin: 2px 2px;
 	height: auto;
@@ -224,6 +227,11 @@ body {
 }
 
 .search-view p {
+<<<<<<< HEAD
+=======
+	border-top: 1px solid;
+	border-bottom: 1px solid;
+>>>>>>> e4add303bcd84cc326953b43b63efc48435ec8d8
 	width: 50%;
 	margin-left: 200px;
 	word-wrap: break-word;
@@ -282,4 +290,115 @@ body {
 
 .new-user-inputs button {
 	margin: 0 0 0 80px;
+}
+
+.comment-view {
+	width: 50%;
+	border: 3px solid black;
+	margin: 10px 0px 10px 40px;
+}
+
+.comment-view p {
+/*	border: 1px solid green;*/
+	word-wrap: break-word;
+	margin-right: 10px;
+	margin-left: 10px;
+}
+
+.comment-view p.title {
+	font-weight: 900;
+	margin-top: 8px;
+}
+
+.comment-view p.content {
+/*	text-indent: 10px;*/
+	padding-left: 10px;
+	margin-top: -5px;
+}
+
+.comment-view p.author {
+	text-indent: 10px;
+	font-weight: 600;
+	font-style: italic;
+	margin-top: -5px;
+}
+
+.comment-view p.date {
+	text-indent: 10px;
+	font-weight: 100;
+	font-style: italic;
+	margin-top: -15px;
+}
+
+.new-comment {
+	margin-top: 20px;
+}
+
+.new-comment .title {
+	width: 133px;
+	height: 20px;
+	font: bold 15px;
+	border: 0;
+	background: #eee;
+	border-radius: 2px;
+	border: 1px solid grey;
+}
+
+.new-comment .title:focus {
+	outline: 0;
+	background: #fff;
+}
+
+.new-comment .content {
+	border-radius: 2px;
+	border: 1px solid grey;
+	margin-top: 5px;
+	width: 50%;
+	padding-bottom: 50px;
+/*	height: 50px;*/
+	background: #eee;
+	word-wrap: break-word;
+}
+
+.new-comment .content:focus {
+	outline: 0;
+	background: #fff;
+}
+
+.new-comment .create {
+	overflow: visible;
+	position: relative;
+/*	float: right;*/
+	border: 0;
+	padding: 0;
+	cursor: pointer;
+	height: 20px;
+	width: 100px;
+	font: bold 15px;
+	color: #fff;
+	text-transform: uppercase;
+	background: #d83c3c;
+	border-radius: 3px;
+	text-shadow: 0 -1px 0 rgba(0,0,0,.3);
+	margin-bottom: 50px;
+	margin-top: 5px;
+}
+
+.new-comment .create:hover {
+	background: #e54040;
+}
+
+.new-comment .create:active,
+.new-comment .create:focus {
+	background: #c42f2f;
+	outline: 0;
+}
+
+.new-comment .create:before {
+	border-right-color: #e54040;
+}
+
+.new-comment .create:focus:before,
+.new-comment .create:active:before {
+	border-right-color: #c42f2f;
 }

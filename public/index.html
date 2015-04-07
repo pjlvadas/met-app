@@ -210,29 +210,35 @@
 	</template>
 
 	<template id="comment-view-template">
-		<div class='user-view'>
-<!-- 			<img src='{{avatar}}' alt=""> -->
+		<div class='comment-view'>
+<!-- 		<img src='{{avatar}}' alt=""> -->
 			<p class='title'>{{title}}</p>
 			<p class='content'>{{content}}</p>
+			<p class='author'>by {{author}}</p>
 			<p class='date'>{{date}}</p>
-			<p class='author'>{{author}}</p>
 		</div>
 	</template>
 
 	<template id="new-comment-template">
-		<input type="text" name="title" placeholder="Title">
-		<input type="text" name="content" placeholder="Content">
+		<div class="new-comment">
+			<input type="text" name="title" class="title" placeholder="Subject">
+			<br>
+			<textarea rows="5" cols="30" type="text" name="content" class="content" placeholder="Share Your Thoughts..."></textarea>
+			<br>
 <!-- 		<input type="text" class="avatar"> -->
-		<button class="create">CREATE</button>
+			<button class="create">Add Comment</button>
+			<br>
+		</div>
 	</template>
 
 	<template id="edit-comment-template">
-		<input type="text" class="title" value="{{title}}">
-		<input type="text" class="content" value="{{content}}">
-		<input type="text" class="date" value="{{date}}">
-<!-- 		<input class="image" value="{{avatar}}"> -->
-		<button class="edit">EDIT</button>
-		<button class="delete">DELETE</button>
+		<div class="edit-comment">
+			<input type="text" class="title" value="{{title}}">
+			<textarea rows="5" cols="30" type="text" class="content" value="{{content}}">
+<!-- 		<input type="text" class="date" value="{{date}}"> -->
+			<button class="edit">EDIT</button>
+			<button class="delete">DELETE</button>
+		</div>
 	</template>
 
 
