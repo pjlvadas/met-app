@@ -4,6 +4,7 @@ App.router = Backbone.Router.extend({
   },
 
   routes: {
+    '': 'homepage',
     'home': 'homepage',
     'search': 'search',
     'events': 'events',
