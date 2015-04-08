@@ -70,7 +70,7 @@
 			<h1>MET APP</h1>
 		</div>
 	</div>
-	
+
 	<div id="nytimes-events" class="nyt">
  		<h1>Events at the Met</h1>
 	</div>
@@ -199,8 +199,8 @@
 			<p class="title">{{title}}</p>
 			<p class="date">YEAR: {{date}}</p>
 			<p class="medium">MEDIUM: {{medium}}</p>
-			{{#if gallery}}
-			<p class="gallery">Gallery: {{gallery}}</p>
+			{{#if gallery_url}}
+			<a href="{{gallery_url}}">Gallery: {{gallery_url}}</a>
 			{{/if}}
 			<button class="add" name="add">ADD TO MY GALLERY</button>
 			<button class="close" name="close">CLOSE</button>
