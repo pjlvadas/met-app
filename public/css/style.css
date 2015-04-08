@@ -4,6 +4,14 @@ body {
 		background-color: #FFFFFF;
 }
 
+#main {
+	padding-top: 50px;
+}
+
+#search-results {
+	padding-top: 50px;
+}
+
 .fixed-nav-bar {
 	position: fixed;
 	top: 0;
@@ -179,6 +187,7 @@ body {
 	background-size: 100% 100%;
 	background-position: fixed;
 	padding-top: 900px;
+	padding-bottom: 50px;
 }
 
 #logo {
@@ -277,6 +286,7 @@ body {
 
 .modal-view {
 	margin: 5px;
+
 }
 
 .modal-view {
@@ -916,7 +926,7 @@ body {
 }
 
 .nyt {
-	padding: 1px;
+	padding: 50px 1px 1px 1px;
 	margin-left: 5px;
 	margin-right: 5px;
 }
